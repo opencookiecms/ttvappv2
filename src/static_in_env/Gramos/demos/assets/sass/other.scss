@@ -1,0 +1,260 @@
+*:focus {
+    outline: none;
+}
+
+main {
+    &.main-content {
+	  margin-left: $side-menu-width;
+	  padding: 30px 20px;
+	  min-height: 100vh;
+	  transition: margin-left .2s;
+    }
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 998;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.30);
+    transition: opacity .5s;
+
+    &.show {
+	  opacity: 1;
+    }
+}
+
+.jqvmap-zoomin, .jqvmap-zoomout {
+	box-sizing: initial;
+}
+
+.jqvmap-region {
+	fill: $color-primary-bright;
+}
+
+.hide-show-toggler {
+	.hide-show-toggler-item {
+		display: none;
+	}
+
+	&:hover, &:focus {
+		.hide-show-toggler-item {
+			display: block;
+		}
+	}
+}
+
+.list-group {
+    .list-group-item {
+	  &.active {
+		background: $color-primary;
+
+		* {
+		    color: white;
+		}
+
+		.badge.badge-primary {
+		    background: white;
+		    color: black;
+		}
+	  }
+    }
+}
+
+.bring-forward {
+    position: relative;
+    z-index: 1;
+}
+
+body.error-page {
+    img {
+	  width: 50%;
+	  display: table;
+	  margin: 50px auto;
+    }
+}
+
+.table-email-list {
+    table.table {
+	  .dropdown {
+		[data-toggle="dropdown"] {
+		    &:after {
+			  display: none;
+		    }
+		}
+	  }
+
+	  .email-subject {
+		max-width: 80%;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+
+		a {
+		    display: inline-block;
+		}
+	  }
+
+	  td, .table th {
+		padding: .80rem;
+	  }
+    }
+
+    a {
+	  color: $default-text-color;
+
+	  &:hover, &:focus {
+		color: $color-primary
+	  }
+    }
+}
+
+.read-mail-body {
+    img {
+	  max-width: 50%;
+    }
+}
+
+.bootstrap-tagsinput {
+    box-shadow: none;
+    width: 100%;
+    border: 1px solid #ced4da;
+    min-height: calc(2.25rem + 2px);
+
+    &.focus {
+	  border-color: $theme-color + 30;
+    }
+
+    .tag {
+	  display: inline-flex;
+	  color: black;
+	  border-radius: 3px;
+	  font-size: $default-font-size - 1;
+	  padding: 0 8px;
+	  margin: 2px 1px;
+	  justify-content: space-between;
+	  align-items: center;
+	  background: white - 30;
+    }
+}
+
+.list-group {
+    .list-group-item {
+	  &.active {
+		background: $color-primary;
+		border-color: transparent;
+	  }
+    }
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets {
+    bottom: -8px;
+}
+
+.swiper-pagination-bullet-active {
+    background: $color-dark;
+}
+
+.list-group-flush .list-group-item:first-child {
+    border-top: 0;
+}
+
+.badge {
+    font-weight: 500;
+}
+
+.swiper-button-prev {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23333333'%2F%3E%3C%2Fsvg%3E") !important;
+}
+
+.swiper-button-next {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23333333'%2F%3E%3C%2Fsvg%3E") !important;
+}
+
+.nav-pills .nav-link.active {
+    background: $color-primary;
+}
+
+.text-muted {
+    color: #a7abc3 !important;
+}
+
+.colorpicker-2x .colorpicker-saturation {
+    width: 200px;
+    height: 200px;
+}
+
+.colorpicker-2x .colorpicker-hue,
+.colorpicker-2x .colorpicker-alpha {
+    width: 30px;
+    height: 200px;
+}
+
+.colorpicker-2x .colorpicker-color,
+.colorpicker-2x .colorpicker-color div {
+    height: 30px;
+}
+
+.nav-grid {
+    .nav-grid-row {
+	  display: flex;
+
+	  .nav-grid-item {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		flex: 6;
+		text-align: center;
+		height: 120px;
+		text-decoration: none;
+
+		i {
+		    font-size: 20px;
+		    border-radius: 50%;
+		    width: 50px;
+		    height: 50px;
+		    line-height: 50px;
+		    margin-bottom: 10px;
+		    background: $theme-color;
+		    color: white;
+		    transition: background .2s;
+		}
+
+		&:hover, &:focus {
+		    i {
+			  background: $element-hover-color;
+		    }
+		}
+	  }
+    }
+}
+
+.jqstooltip {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.font-weight-800 {
+    font-weight: 800;
+}
+
+.circle canvas {
+    /* magic line that removes bottom margin */
+    vertical-align: top;
+}
+
+.todo-item {
+    user-select: none;
+    margin-bottom: 10px;
+
+    input[type="checkbox"]:checked {
+	  & + label {
+		text-decoration: line-through;
+	  }
+    }
+}

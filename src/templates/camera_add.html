@@ -1,0 +1,138 @@
+{% extends 'based/based.html' %}
+
+{% block content %}
+{% load static %}
+
+<main class="main-content">
+
+    <div class="container">
+
+        <!-- begin::page header -->
+        <div class="page-header d-md-flex justify-content-between align-items-center">
+            <div>
+                <h4>Add Camera</h4>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Sales</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <!-- end::page header -->
+        <div class="row">
+            <div class="col-md-12"> 
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Camera</h5>
+                    <form>
+                     {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col-md-4 mb-3">
+                                <label for="validationServer01">Camera Name</label>
+                                {{form.camera_name}}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-4 mb-3">
+                                <label for="validationServer01">Camera No</label>
+                                {{form.camera_no}}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-4 mb-3">
+                                <label for="validationServer01">Camera Link</label>
+                                {{form.camera_link}}
+                            </div>
+                        </div>
+                        <br>
+                        <h5 class="card-title">Camera Overlay Setup</h5>
+                        <div class="form-row">
+                            <div class="col-md-3 mb-3">
+                                <label for="validationServer03">Point x(1)</label>
+                                {{form.camera_point1x}}
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="validationServer04">Point y(1)</label>
+                                {{form.camera_point1y}}
+                             
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="validationServer05">Point x(2)</label>
+                                {{form.camera_point2x}}
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="validationServer05">Point y(2)</label>
+                                {{form.camera_point2y}}
+    
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="validationServer05">Point x(3)</label>
+                                {{form.camera_point3x}}
+    
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="validationServer05">Point y(3)</label>
+                                {{form.camera_point3y}}
+    
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="validationServer05">Point x(4)</label>
+                                {{form.camera_point4x}}
+    
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="validationServer05">Point y(4)</label>
+                                {{form.camera_point4y}}
+    
+                            </div>
+                        
+
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-3 mb-3">
+                                <label for="validationServer03">Overlay</label>
+                                {{form.camera_overlay}}
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="validationServer04">Annotation </label>
+                                {{form.camera_annotation}}
+                             
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="validationServer05">Detection</label>
+                                {{form.camera_detection}}
+                              
+                            </div>
+                        </div>
+                            <div class="form-row">
+                            <div class="col-md-3 mb-3">
+                                <label for="validationServer03">Group Location</label>
+                                {{form.camera_group}}
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="validationServer04">Cell Location</label>
+                                {{form.camera_cells}}
+                             
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="validationServer05">Project Bind</label>
+                                {{form.camera_project}}
+                              
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="submit">Save</button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+{% endblock content %}
+
+

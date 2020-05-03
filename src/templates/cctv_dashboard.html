@@ -1,0 +1,40 @@
+{% extends 'based/based.html' %}
+
+{% block content %}
+{% load static %}
+
+<!-- begin::main content -->
+<main class="main-content">
+
+    <div class="container-fluid">
+
+        <!-- begin::page header -->
+        <div class="page-header d-md-flex justify-content-between align-items-center">
+            <h4>CCTV Dashboard</h4>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb m-t-0">
+                    <li class="breadcrumb-item"><a href="#">{{title}}</a></li>
+                </ol>
+            </nav>
+        </div>
+        <!-- end::page header -->
+
+        <div class="row">
+            {% for cam in camcategory %}
+            <div class="col-md-3">
+                <div class="card {{cam.cgroup_cardcolor}}">
+                    <div class="card-header">{{cam.cgroup_name}}</div>
+                    <div class="card-body">
+                        <h2 class="card-title m-b-0 font-weight-800">{{cam.cgroup_much}} Camera</h2>
+                        <br>
+                        <a href="{% url 'camera' group_name=cam.id %}" class="btn btn-outline-light">More Info</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</main>
+
+{% endblock content %}

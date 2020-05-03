@@ -1,0 +1,58 @@
+$aside-width: 240px; // old
+$side-menu-width: 250px; // new
+
+$header-height: 70px;
+
+$aside-icon-mode-width: 80px;
+
+$default-font-size: 14px;
+
+$body-bg-color: #eff2fa;
+$body-bg-color-dark: #181b2e;
+
+$body-bg-color-dark-light: $body-bg-color-dark + 20;
+
+$default-text-color: black + 100;
+$default-text-color-dark: white - 70;
+
+$default-avatar-size: 3.3rem;
+
+$element-focus-outline-opacity: .40;
+
+$color-primary: #5891aa;
+$color-primary-bright: #c0c5e4;
+
+$color-secondary: #a3a4a5;
+$color-secondary-bright: #ededed;
+
+$color-success: #0acf97;
+$color-success-bright: #cef5ea;
+
+$color-info: #00bcd4;
+$color-info-bright: #e1efff;
+
+$color-light: white - 15;
+
+$color-danger: #f2125e;
+$color-danger-bright: #fcd0df;
+
+$color-warning: #ff8300;
+$color-warning-bright: #ffe6cc;
+
+$color-dark: #3a3f51;
+$color-dark-bright: #d4d5d8;
+
+$color-dribbble: #ea4c89;
+$color-facebook: #3b5998;
+$color-instagram: #517fa4;
+$color-linkedin: #0077b5;
+$color-pinterest: #bd081c;
+$color-tumblr: #35465c;
+$color-twitter: #55acee;
+$color-youtube: #b31217;
+$color-whatsapp: #25D366;
+$color-google: #DB4437;
+
+$theme-color: $color-primary;
+
+$element-hover-color: $theme-color - 30;

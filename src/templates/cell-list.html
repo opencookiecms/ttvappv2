@@ -1,0 +1,116 @@
+{% extends 'based/based.html' %}
+
+{% block content %}
+{% load static %}
+
+<main class="main-content">
+
+    <div class="container-fluid">
+
+        <!-- begin::page header -->
+        <div class="page-header d-md-flex justify-content-between align-items-center">
+            <h4>Cell Dashboard : {{title}}</h4>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb m-t-0">
+                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="#">UI Elements</a></li>
+                    <li class="breadcrumb-item"><a href="#">Cards</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Image Cards</li>
+                </ol>
+            </nav>
+        </div>
+        <!-- end::page header -->
+
+        <div class="card-group">
+            {% for row in row1 %}
+            <div class="card  {{row.cell_project.p_color}}">
+                <div class="card-header">{{row.cell_name}}</div>
+                <div class="card-body">
+                    {% if row.cell_project == None %}
+                    <h5 class="font-weight-bold text-success">Cell Available</h5>
+                    <br>
+                    <br>
+                    {% else %}
+                    <h5 class="font-weight-bold">{{row.cell_project.p_name}}</h5>         
+                    {{row.cell_project.p_company}}
+                    {{row.cell_project.id}}
+                    <br>
+                    <br>
+                    {% endif %}
+                     <a href="{{row.cell_project.get_absolute_url}}" class="btn btn-outline-light">More info</a>
+                </div>
+            </div>
+          
+            {% endfor %}
+        </div>
+
+        <div class="card-group"style="margin-bottom:3px">
+            {% for row in row2 %}
+            <div class="card">
+                <div class="card-header">{{row.cell_name}}</div>
+                      <div class="card-body">
+                    {% if row.cell_project == None %}
+                    <h5 class="font-weight-bold text-success">Cell Available</h5>
+                    <br>
+                    <br>
+                    {% else %}
+                    <h5 class="font-weight-bold">{{row.cell_project.p_name}}</h5>         
+                    {{row.cell_project.p_company}}
+                    <br>
+                    <br>
+                    {% endif %}
+                     <a href="" class="btn btn-outline-light">More Info</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="card-group">
+            {% for row in row3 %}
+            <div class="card">
+                <div class="card-header">{{row.cell_name}}</div>
+                    <div class="card-body">
+                    {% if row.cell_project == None %}
+                    <h5 class="font-weight-bold text-success">Cell Available</h5>
+                    <br>
+                    <br>
+                    {% else %}
+                    <h5 class="font-weight-bold">{{row.cell_project.p_name}}</h5>         
+                    {{row.cell_project.p_company}}
+                    <br>
+                    <br>
+                    {% endif %}
+                     <a href="" class="btn btn-outline-light">More Info</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    
+        <div class="card-group">
+            {% for row in row4 %}
+            <div class="card">
+                <div class="card-header">{{row.cell_name}}</div>
+                    <div class="card-body">
+                    {% if row.cell_project == None %}
+                    <h5 class="font-weight-bold text-success">Cell Available</h5>
+                    <br>
+                    <br>
+                    {% else %}
+                    <h5 class="font-weight-bold">{{row.cell_project.p_name}}</h5>         
+                    {{row.cell_project.p_company}}
+                    <br>
+                    <br>
+                    {% endif %}
+                     <a href="" class="btn btn-outline-light">More Info</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+
+    </div>
+
+</main>
+
+{% endblock content %}

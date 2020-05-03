@@ -1,0 +1,940 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gramos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dark.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            padding-left: 300px;
+        }
+
+        .doc-header {
+            background: #424242;
+            padding: 35px 50px;
+        }
+
+        .doc-header h1 {
+            font-size: 27px;
+            font-weight: 500;
+            color: #eee;
+            margin: 0;
+        }
+
+        .doc-header p {
+            color: #eee;
+            margin: 0;
+            margin-top: 15px;
+        }
+
+        .table-of-contents {
+            padding-top: 20px;
+            padding-left: 20px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            top: 0;
+            width: 300px;
+            overflow: auto;
+            background: #eeeeee;
+            display: block;
+        }
+
+        .table-of-contents nav.nav {
+            display: none;
+        }
+
+        .table-of-contents a.nav-link {
+            font-size: 14px;
+            color: black;
+        }
+
+        .table-of-contents a.nav-link.active {
+            background: none !important;
+            color: #007bff;
+            font-weight: 600;
+        }
+
+        .table-of-contents a.nav-link.active + nav.nav {
+            display: block !important;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: 0;
+            font-weight: 300;
+            color: #555;
+        }
+
+        h3, h4, h5, h6 {
+            margin-top: 40px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .doc-content {
+            padding: 50px;
+            line-height: 25px;
+            color: #666
+        }
+
+        .doc-content a:hover, .doc-content a:focus {
+            color: #007bff;
+        }
+
+        .doc-content a:hover h1, .doc-content a:hover h2, .doc-content a:hover h3, .doc-content a:hover h4, .doc-content a:hover h5, .doc-content a:hover h6 {
+            color: #007bff;
+        }
+
+        .doc-content pre {
+            padding: 0;
+            border: none;
+            font-size: 14px;
+            margin: 20px 0;
+            border-radius: 5px;
+            max-height: 500px;
+        }
+
+        code {
+            padding: 2px 6px;
+            color: #b5022f;
+            background-color: #ffecf2;
+        }
+
+        .doc-content pre code {
+            padding: 20px 30px !important;
+        }
+
+        .doc-content h2 {
+            margin-bottom: 20px;
+        }
+
+        .doc-content h4 {
+            font-size: 20px
+        }
+
+        .doc-content .alert {
+            margin: 0 !important;
+            margin-bottom: 20px !important;
+        }
+
+        .doc-content img {
+            max-width: 100% !important;
+            height: auto !important;
+        }
+
+        .doc-content a:hover, .doc-content p + a:focus {
+            text-decoration: none;
+        }
+
+        .doc-content p + a > h2 {
+            margin-top: 40px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="nav nav-pills flex-column table-of-contents">
+        <p>Table of Content</p>
+                    <a class="nav-link" href="#getting-started">Getting Started</a>
+                                <a class="nav-link" href="#setup">Setup</a>
+                            <a class="nav-link ml-4" href="#starting-with-gulp">Starting with Gulp</a>
+                                            <a class="nav-link ml-4" href="#gulp-installation">Gulp Installation</a>
+                                                <a class="nav-link" href="#page-structure">Page Structure</a>
+                            <a class="nav-link ml-4" href="#page-loader">Page Loader</a>
+                                            <a class="nav-link ml-4" href="#navbar">Navbar</a>
+                                            <a class="nav-link ml-4" href="#sidebar">Sidebar</a>
+                                            <a class="nav-link ml-4" href="#navigation">Navigation</a>
+                                            <a class="nav-link ml-4" href="#main-content">Main Content</a>
+                                                <a class="nav-link" href="#helpers">Helpers</a>
+                                <a class="nav-link" href="#references">References</a>
+                        </nav>
+
+<div class="doc-header">
+    <h1>Gramos</h1>
+    </div>
+
+    <div class="doc-content">
+                    <a href="#getting-started">
+                <h2 id="getting-started">
+                    1 . Getting Started
+                </h2>
+            </a>
+            <p><p>This documentation allows you to quickly build your projects with Gramos Admin. After downloading the files you will see a screen as follows.</p>
+
+<p><img alt="" src="http://laborasyon.com/create-doc/photos/1/2019-04-08_21-50-39.png" style="border:1px solid #dddddd" /></p></p>
+                                <a href="#setup">
+                <h2 id="setup">
+                    2 . Setup
+                </h2>
+            </a>
+            <p></p>
+                            <a href="#starting-with-gulp">
+                    <h4 id="starting-with-gulp">
+                        2.1 Starting with Gulp
+                    </h4>
+                </a>
+                <p><p>With Gulp, you can quickly handle frontend operations, compress your files, or merge them faster with SCSS.</p></p>
+                                            <a href="#gulp-installation">
+                    <h4 id="gulp-installation">
+                        2.2 Gulp Installation
+                    </h4>
+                </a>
+                <p><p>You need to install Node.js before you start using Gulp.&nbsp;Node.js with NPM (Node Packaged Modules) you can manage Gulp.&nbsp;You can manage gulp with NPM (node packaged modules) in Node.js.&nbsp;Follow these steps to setup.</p>
+
+<ol>
+	<li>Open the <strong>Get Started</strong> folder in the file you downloaded.</li>
+	<li>Arrange the Gulp configuration file (<strong>Gulpfile.js</strong>) for you.</li>
+	<li>Go to the Get Started folder on the console screen and run the <strong>npm install </strong>command</li>
+	<li>Then run the <strong>gulp </strong>command&nbsp;</li>
+</ol>
+
+<p>Gulp keeps track of CSS and Javascript files, automatically detects changes and applies the rules in the configuration file.</p>
+
+<p>You can now start developing your <strong>Gramos&nbsp;Admin</strong> theme.</p></p>
+                                                <a href="#page-structure">
+                <h2 id="page-structure">
+                    3 . Page Structure
+                </h2>
+            </a>
+            <p><p>You can use the blank-page.html file to get started quickly. The structure of a basic page is as follows.</p></p>
+                            <a href="#page-loader">
+                    <h4 id="page-loader">
+                        3.1 Page Loader
+                    </h4>
+                </a>
+                <p><pre>
+<code class="language-html">&lt;div class="page-loader"&gt;
+    &lt;div class="spinner-border"&gt;&lt;/div&gt;
+    &lt;span&gt;Loading ...&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+<p>&nbsp;</p></p>
+                                            <a href="#navbar">
+                    <h4 id="navbar">
+                        3.2 Navbar
+                    </h4>
+                </a>
+                <p><pre>
+<code class="language-html">&lt;nav class="navbar"&gt;
+    &lt;div class="container-fluid"&gt;
+
+        &lt;div class="header-logo"&gt;
+            &lt;a href="#"&gt;
+                &lt;img src="../demos/assets/media/image/light-logo.png" alt="..."&gt;
+                &lt;span class="logo-text d-none d-lg-block"&gt;Gramos&lt;/span&gt;
+            &lt;/a&gt;
+        &lt;/div&gt;
+
+        &lt;div class="header-body"&gt;
+            &lt;ul class="navbar-nav"&gt;
+                &lt;li class="nav-item dropdown d-none d-lg-block"&gt;
+                    &lt;a href="#" class="nav-link" data-toggle="dropdown"&gt;
+                        &lt;i class="fa fa-th-large"&gt;&lt;/i&gt;
+                    &lt;/a&gt;
+                    &lt;div class="dropdown-menu dropdown-menu-big dropdown-menu-nav-grid"&gt;
+                        &lt;div class="dropdown-menu-title"&gt;Quick menu&lt;/div&gt;
+                        &lt;div class="dropdown-menu-body"&gt;
+                            &lt;div class="nav-grid"&gt;
+                                &lt;div class="nav-grid-row"&gt;
+                                    &lt;a href="#" class="nav-grid-item"&gt;
+                                        &lt;i class="fa fa-address-book-o"&gt;&lt;/i&gt;
+                                        &lt;span&gt;App&lt;/span&gt;
+                                    &lt;/a&gt;
+                                    &lt;a href="#" class="nav-grid-item"&gt;
+                                        &lt;i class="fa fa-envelope-o"&gt;&lt;/i&gt;
+                                        &lt;span&gt;Mail&lt;/span&gt;
+                                    &lt;/a&gt;
+                                &lt;/div&gt;
+                                &lt;div class="nav-grid-row"&gt;
+                                    &lt;a href="#" class="nav-grid-item"&gt;
+                                        &lt;i class="fa fa-sticky-note"&gt;&lt;/i&gt;
+                                        &lt;span&gt;Chat&lt;/span&gt;
+                                    &lt;/a&gt;
+                                    &lt;a href="#" class="nav-grid-item"&gt;
+                                        &lt;i class="fa fa-dashboard"&gt;&lt;/i&gt;
+                                        &lt;span&gt;Dashboard&lt;/span&gt;
+                                    &lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;form class="search"&gt;
+                &lt;div class="input-group"&gt;
+                    &lt;input type="text" class="form-control" placeholder="Search ..."
+                           aria-label="Recipient's username"
+                           aria-describedby="button-addon2"&gt;
+                    &lt;div class="input-group-append"&gt;
+                        &lt;button class="btn" type="button" id="button-addon2"&gt;
+                            &lt;i class="fa fa-search"&gt;&lt;/i&gt;
+                        &lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+            &lt;ul class="navbar-nav"&gt;
+                &lt;li class="nav-item"&gt;
+                    &lt;a href="#" class="d-lg-none d-sm-block nav-link search-panel-open"&gt;
+                        &lt;i class="fa fa-search"&gt;&lt;/i&gt;
+                    &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class="nav-item dropdown"&gt;
+                    &lt;a href="#" class="nav-link nav-link-notify" data-toggle="dropdown"&gt;
+                        &lt;i class="fa fa-envelope"&gt;&lt;/i&gt;
+                    &lt;/a&gt;
+                    &lt;div class="dropdown-menu dropdown-menu-right dropdown-menu-big"&gt;
+                        &lt;div class="dropdown-menu-title d-flex justify-content-between"&gt;
+                            &lt;div&gt;
+                                &lt;h6 class="text-uppercase font-size-12 m-b-0"&gt;Messages&lt;/h6&gt;
+                                &lt;small class="font-size-11 opacity-7"&gt;1 unread messages&lt;/small&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="dropdown-menu-body"&gt;
+                            &lt;ul class="list-group list-group-flush"&gt;
+                                &lt;a href="#" class="list-group-item d-flex link-1 hide-show-toggler"&gt;
+                                    &lt;div&gt;
+                                        &lt;figure class="avatar avatar-sm m-r-15"&gt;
+                                            &lt;span class="avatar-title bg-success rounded-circle"&gt;M&lt;/span&gt;
+                                        &lt;/figure&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="flex-grow-1"&gt;
+                                        &lt;h6 class="m-b-0 d-flex justify-content-between"&gt;
+                                            Malanie Hanvey
+                                            &lt;i title="Read Mark" data-toggle="tooltip"
+                                               class="hide-show-toggler-item fa fa-check font-size-11"&gt;&lt;/i&gt;
+                                        &lt;/h6&gt;
+                                        &lt;span class="text-muted m-r-10 small"&gt;PM 08:50&lt;/span&gt;
+                                        &lt;span class="text-muted small"&gt;Have you mad...&lt;/span&gt;
+                                    &lt;/div&gt;
+                                &lt;/a&gt;
+                                &lt;a href="#" class="list-group-item d-flex link-1 bg-light hide-show-toggler"&gt;
+                                    &lt;div&gt;
+                                        &lt;figure class="avatar avatar-sm m-r-15"&gt;
+                                            &lt;span class="avatar-title bg-primary rounded-circle"&gt;TB&lt;/span&gt;
+                                        &lt;/figure&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="flex-grow-1"&gt;
+                                        &lt;h6 class="m-b-0 d-flex justify-content-between"&gt;
+                                            Kenneth Hune
+                                            &lt;i title="Read Mark" data-toggle="tooltip"
+                                               class="hide-show-toggler-item fa fa-circle-o font-size-11"&gt;&lt;/i&gt;
+                                        &lt;/h6&gt;
+                                        &lt;span class="text-muted m-r-10 small"&gt;PM 10:23&lt;/span&gt;
+                                        &lt;span class="text-muted small"&gt;I have a meetin...&lt;/span&gt;
+                                    &lt;/div&gt;
+                                &lt;/a&gt;
+                                &lt;a href="#" class="list-group-item d-flex align-items-center link-1 hide-show-toggler"&gt;
+                                    &lt;div&gt;
+                                        &lt;figure class="avatar avatar-sm m-r-15"&gt;
+                                            &lt;span class="avatar-title bg-danger rounded-circle"&gt;M&lt;/span&gt;
+                                        &lt;/figure&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="flex-grow-1"&gt;
+                                        &lt;h6 class="m-b-0 d-flex justify-content-between"&gt;
+                                            Kevin added
+                                            &lt;i title="Read Mark" data-toggle="tooltip"
+                                               class="hide-show-toggler-item fa fa-check font-size-11"&gt;&lt;/i&gt;
+                                        &lt;/h6&gt;
+                                        &lt;span class="text-muted m-r-10 small"&gt;PM 08:50&lt;/span&gt;
+                                        &lt;span class="text-muted small"&gt;Have you mad...&lt;/span&gt;
+                                    &lt;/div&gt;
+                                &lt;/a&gt;
+                                &lt;a href="#" class="list-group-item d-flex align-items-center link-1 hide-show-toggler"&gt;
+                                    &lt;div&gt;
+                                        &lt;figure class="avatar avatar-sm m-r-15"&gt;
+                                            &lt;span class="avatar-title bg-info rounded-circle"&gt;KC&lt;/span&gt;
+                                        &lt;/figure&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="flex-grow-1"&gt;
+                                        &lt;h6 class="m-b-0 d-flex justify-content-between"&gt;
+                                            Katherine Ember
+                                            &lt;i title="Read Mark" data-toggle="tooltip"
+                                               class="hide-show-toggler-item fa fa-check font-size-11"&gt;&lt;/i&gt;
+                                        &lt;/h6&gt;
+                                        &lt;span class="text-muted m-r-10 small"&gt;PM 20:13&lt;/span&gt;
+                                        &lt;span class="text-muted small"&gt;I have a meetin...&lt;/span&gt;
+                                    &lt;/div&gt;
+                                &lt;/a&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;div class="dropdown-menu-footer text-right"&gt;
+                            &lt;ul class="list-inline small"&gt;
+                                &lt;li class="list-inline-item"&gt;
+                                    &lt;a href="#"&gt;Mark All Read&lt;/a&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/li&gt;
+                &lt;li class="nav-item"&gt;
+                    &lt;a href="#" class="nav-link nav-link-notify sidebar-open" data-sidebar-target="#notifications"&gt;
+                        &lt;i class="fa fa-bell"&gt;&lt;/i&gt;
+                    &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class="nav-item dropdown"&gt;
+                    &lt;a href="#" data-toggle="dropdown"&gt;
+                        &lt;figure class="avatar avatar-sm avatar-state-success"&gt;
+                            &lt;img class="rounded-circle" src="../demos/assets/media/image/avatar.jpg" alt="..."&gt;
+                        &lt;/figure&gt;
+                    &lt;/a&gt;
+                    &lt;div class="dropdown-menu dropdown-menu-right"&gt;
+                        &lt;a href="profile.html" class="dropdown-item"&gt;Profile&lt;/a&gt;
+                        &lt;a href="#" data-sidebar-target="#settings" class="sidebar-open dropdown-item"&gt;Settings&lt;/a&gt;
+                        &lt;div class="dropdown-divider"&gt;&lt;/div&gt;
+                        &lt;a href="login.html" class="text-danger dropdown-item"&gt;Logout&lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/li&gt;
+                &lt;li class="nav-item d-lg-none d-sm-block"&gt;
+                    &lt;a href="#" class="nav-link side-menu-open"&gt;
+                        &lt;i class="ti-menu"&gt;&lt;/i&gt;
+                    &lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+
+<p>&nbsp;</p></p>
+                                            <a href="#sidebar">
+                    <h4 id="sidebar">
+                        3.3 Sidebar
+                    </h4>
+                </a>
+                <p><pre>
+<code class="language-html">&lt;div class="sidebar"&gt;
+    &lt;ul class="nav nav-pills nav-justified m-b-30" id="pills-tab" role="tablist"&gt;
+        &lt;li class="nav-item"&gt;
+            &lt;a class="nav-link" id="notifications-tab" data-toggle="pill" href="#notifications" role="tab"
+               aria-controls="notifications" aria-selected="false"&gt;
+                &lt;i class="fa fa-bell"&gt;&lt;/i&gt;
+            &lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class="nav-item"&gt;
+            &lt;a class="nav-link" id="settings-tab" data-toggle="pill" href="#settings" role="tab"
+               aria-controls="settings" aria-selected="false"&gt;
+                &lt;i class="ti-settings"&gt;&lt;/i&gt;
+            &lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class="tab-content" id="pills-tabContent"&gt;
+        &lt;div class="tab-pane" id="notifications" role="tabpanel" aria-labelledby="notifications-tab"&gt;
+            &lt;div class="tab-pane-body"&gt;
+                &lt;h5 class="font-weight-bold m-b-20"&gt;Notifications&lt;/h5&gt;
+                &lt;div&gt;
+                    &lt;p class="text-muted"&gt;Today&lt;/p&gt;
+                    &lt;ul class="list-group list-group-flush m-b-10"&gt;
+                        &lt;li class="list-group-item d-flex p-l-r-0"&gt;
+                            &lt;div&gt;
+                                &lt;figure class="avatar avatar-xs m-r-10"&gt;
+                                    &lt;span class="avatar-title bg-success rounded-circle"&gt;A&lt;/span&gt;
+                                &lt;/figure&gt;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                                &lt;p class="m-b-0"&gt;
+                                    &lt;span class="badge small badge-danger"&gt;New&lt;/span&gt;
+                                    New user registration.
+                                &lt;/p&gt;
+                                &lt;ul class="list-inline small"&gt;
+                                    &lt;li class="list-inline-item text-muted"&gt;8 minute ago&lt;/li&gt;
+                                    &lt;li class="list-inline-item"&gt;
+                                        &lt;a href="#"&gt;Mark Read&lt;/a&gt;
+                                    &lt;/li&gt;
+                                    &lt;li class="list-inline-item"&gt;
+                                        &lt;a href="#"&gt;View&lt;/a&gt;
+                                    &lt;/li&gt;
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                        &lt;li class="list-group-item d-flex p-l-r-0"&gt;
+                            &lt;div&gt;
+                                &lt;figure class="avatar avatar-xs m-r-10"&gt;
+                                    &lt;span class="avatar-title rounded-circle"&gt;
+                                        &lt;i class="fa fa-cloud-upload"&gt;&lt;/i&gt;
+                                    &lt;/span&gt;
+                                &lt;/figure&gt;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                                &lt;p class="m-b-0"&gt;Files uploaded successfully.&lt;/p&gt;
+                                &lt;ul class="list-inline small"&gt;
+                                    &lt;li class="list-inline-item text-muted"&gt;50 minute ago&lt;/li&gt;
+                                    &lt;li class="list-inline-item"&gt;
+                                        &lt;a href="#"&gt;Mark Read&lt;/a&gt;
+                                    &lt;/li&gt;
+                                    &lt;li class="list-inline-item"&gt;
+                                        &lt;a href="#"&gt;View&lt;/a&gt;
+                                    &lt;/li&gt;
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;p class="text-muted"&gt;Yesterday&lt;/p&gt;
+                    &lt;ul class="list-group list-group-flush m-b-10"&gt;
+                        &lt;li class="list-group-item d-flex p-l-r-0"&gt;
+                            &lt;div&gt;
+                                &lt;figure class="avatar avatar-xs m-r-10"&gt;
+                                    &lt;span class="avatar-title bg-warning rounded-circle"&gt;V&lt;/span&gt;
+                                &lt;/figure&gt;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                                &lt;p class="m-b-0"&gt;New user registration.&lt;/p&gt;
+                                &lt;ul class="list-inline small"&gt;
+                                    &lt;li class="list-inline-item text-muted"&gt;5 hours ago&lt;/li&gt;
+                                    &lt;li class="list-inline-item"&gt;
+                                        &lt;a href="#"&gt;Mark Read&lt;/a&gt;
+                                    &lt;/li&gt;
+                                    &lt;li class="list-inline-item"&gt;
+                                        &lt;a href="#"&gt;View&lt;/a&gt;
+                                    &lt;/li&gt;
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                        &lt;li class="list-group-item d-flex p-l-r-0"&gt;
+                            &lt;div&gt;
+                                &lt;figure class="avatar avatar-xs m-r-10"&gt;
+                                    &lt;span class="avatar-title rounded-circle"&gt;
+                                        &lt;i class="fa fa-file-o"&gt;&lt;/i&gt;
+                                    &lt;/span&gt;
+                                &lt;/figure&gt;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                                &lt;p class="m-b-0"&gt;Your invoice prepared.&lt;/p&gt;
+                                &lt;ul class="list-inline small"&gt;
+                                    &lt;li class="list-inline-item text-muted"&gt;10 hours ago&lt;/li&gt;
+                                    &lt;li class="list-inline-item"&gt;
+                                        &lt;a href="#"&gt;Mark Read&lt;/a&gt;
+                                    &lt;/li&gt;
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                        &lt;li class="list-group-item d-flex p-l-r-0"&gt;
+                            &lt;div&gt;
+                                &lt;figure class="avatar avatar-xs m-r-10"&gt;
+                                    &lt;span class="avatar-title rounded-circle"&gt;
+                                        &lt;i class="fa fa-cloud-upload"&gt;&lt;/i&gt;
+                                    &lt;/span&gt;
+                                &lt;/figure&gt;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                                &lt;p class="m-b-0"&gt;Files uploaded successfully.&lt;/p&gt;
+                                &lt;ul class="list-inline small"&gt;
+                                    &lt;li class="list-inline-item text-muted"&gt;16 hours ago&lt;/li&gt;
+                                    &lt;li class="list-inline-item"&gt;
+                                        &lt;a href="#"&gt;Mark Read&lt;/a&gt;
+                                    &lt;/li&gt;
+                                    &lt;li class="list-inline-item"&gt;
+                                        &lt;a href="#"&gt;View&lt;/a&gt;
+                                    &lt;/li&gt;
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="tab-pane-footer"&gt;
+                &lt;a href="#" class="btn btn-primary btn-block"&gt;Mark All Read&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab"&gt;
+            &lt;div class="tab-pane-body"&gt;
+                &lt;div class="m-b-30"&gt;
+                    &lt;h5 class="font-weight-bold m-b-20"&gt;Settings&lt;/h5&gt;
+                    &lt;h6 class="font-weight-bold"&gt;System&lt;/h6&gt;
+                    &lt;ul class="list-group list-group-flush"&gt;
+                        &lt;li class="list-group-item d-flex justify-content-between p-l-r-0"&gt;
+                            &lt;span&gt;Automatic updates&lt;/span&gt;
+                            &lt;div class="custom-control custom-switch"&gt;
+                                &lt;input type="checkbox" class="custom-control-input" id="customSwitch1" checked&gt;
+                                &lt;label class="custom-control-label" for="customSwitch1"&gt;&lt;/label&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                        &lt;li class="list-group-item d-flex justify-content-between p-l-r-0"&gt;
+                            &lt;span&gt;Current statistics&lt;/span&gt;
+                            &lt;div class="custom-control custom-switch"&gt;
+                                &lt;input type="checkbox" class="custom-control-input" id="customSwitch2" checked&gt;
+                                &lt;label class="custom-control-label" for="customSwitch2"&gt;&lt;/label&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                        &lt;li class="list-group-item d-flex justify-content-between p-l-r-0"&gt;
+                            &lt;span&gt;User suggestions&lt;/span&gt;
+                            &lt;div class="custom-control custom-switch"&gt;
+                                &lt;input type="checkbox" class="custom-control-input" id="customSwitch3" checked&gt;
+                                &lt;label class="custom-control-label" for="customSwitch3"&gt;&lt;/label&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                &lt;div class="m-b-30"&gt;
+                    &lt;h6 class="font-weight-bold"&gt;Accout&lt;/h6&gt;
+                    &lt;ul class="list-group list-group-flush"&gt;
+                        &lt;li class="list-group-item d-flex justify-content-between p-l-r-0"&gt;
+                            &lt;span&gt;Senior account security&lt;/span&gt;
+                            &lt;div class="custom-control custom-switch"&gt;
+                                &lt;input type="checkbox" class="custom-control-input" id="customSwitch4"&gt;
+                                &lt;label class="custom-control-label" for="customSwitch4"&gt;&lt;/label&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                        &lt;li class="list-group-item d-flex justify-content-between p-l-r-0"&gt;
+                            &lt;span&gt;Account protection&lt;/span&gt;
+                            &lt;div class="custom-control custom-switch"&gt;
+                                &lt;input type="checkbox" class="custom-control-input" id="customSwitch5" checked&gt;
+                                &lt;label class="custom-control-label" for="customSwitch5"&gt;&lt;/label&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+                &lt;div class="m-b-30"&gt;
+                    &lt;h6 class="font-weight-bold"&gt;Notifications&lt;/h6&gt;
+                    &lt;ul class="list-group list-group-flush"&gt;
+                        &lt;li class="list-group-item d-flex justify-content-between p-l-r-0"&gt;
+                            &lt;span&gt;Browser notifications&lt;/span&gt;
+                            &lt;div class="custom-control custom-switch"&gt;
+                                &lt;input type="checkbox" class="custom-control-input" id="customSwitch6"&gt;
+                                &lt;label class="custom-control-label" for="customSwitch6"&gt;&lt;/label&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                        &lt;li class="list-group-item d-flex justify-content-between p-l-r-0"&gt;
+                            &lt;span&gt;Mobile notifications&lt;/span&gt;
+                            &lt;div class="custom-control custom-switch"&gt;
+                                &lt;input type="checkbox" class="custom-control-input" id="customSwitch7"&gt;
+                                &lt;label class="custom-control-label" for="customSwitch7"&gt;&lt;/label&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                        &lt;li class="list-group-item d-flex justify-content-between p-l-r-0"&gt;
+                            &lt;span&gt;Email subscription&lt;/span&gt;
+                            &lt;div class="custom-control custom-switch"&gt;
+                                &lt;input type="checkbox" class="custom-control-input" id="customSwitch8"&gt;
+                                &lt;label class="custom-control-label" for="customSwitch8"&gt;&lt;/label&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                        &lt;li class="list-group-item d-flex justify-content-between p-l-r-0"&gt;
+                            &lt;span&gt;Sms notifications&lt;/span&gt;
+                            &lt;div class="custom-control custom-switch"&gt;
+                                &lt;input type="checkbox" class="custom-control-input" id="customSwitch9" checked&gt;
+                                &lt;label class="custom-control-label" for="customSwitch9"&gt;&lt;/label&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="tab-pane-footer"&gt;
+                &lt;a href="#" class="btn btn-primary btn-block"&gt;Save Settings&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<p>&nbsp;</p></p>
+                                            <a href="#navigation">
+                    <h4 id="navigation">
+                        3.4 Navigation
+                    </h4>
+                </a>
+                <p><pre>
+<code class="language-html">&lt;div class="side-menu"&gt;
+    &lt;div class='side-menu-body'&gt;
+        &lt;ul&gt;
+            &lt;li class="side-menu-divider"&gt;Navigation&lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href="#"&gt;&lt;i class="icon ti-home"&gt;&lt;/i&gt; &lt;span&gt;Contacts&lt;/span&gt; &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;a href="#"&gt;&lt;i class="icon ti-settings"&gt;&lt;/i&gt; &lt;span&gt;Settings&lt;/span&gt; &lt;/a&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<p>&nbsp;</p></p>
+                                            <a href="#main-content">
+                    <h4 id="main-content">
+                        3.5 Main Content
+                    </h4>
+                </a>
+                <p><pre>
+<code class="language-html">&lt;main class="main-content"&gt;
+
+    &lt;div class="container"&gt;
+
+        &lt;!-- begin::page header --&gt;
+        &lt;div class="page-header"&gt;
+            &lt;h3&gt;Dashboard&lt;/h3&gt;
+            &lt;nav aria-label="breadcrumb"&gt;
+                 &lt;ol class="breadcrumb"&gt;
+                     &lt;li class="breadcrumb-item"&gt;&lt;a href="#"&gt;Dashboard&lt;/a&gt;&lt;/li&gt;
+                     &lt;li class="breadcrumb-item active" aria-current="page"&gt;Sales&lt;/li&gt;
+                 &lt;/ol&gt;
+            &lt;/nav&gt;
+        &lt;/div&gt;
+        &lt;!-- end::page header --&gt;
+
+        ...
+
+    &lt;/div&gt;
+
+&lt;/main&gt;</code></pre>
+
+<p>&nbsp;</p></p>
+                                                <a href="#helpers">
+                <h2 id="helpers">
+                    4 . Helpers
+                </h2>
+            </a>
+            <p><table class="table table-hovered table-striped">
+	<thead>
+		<tr>
+			<th>Class Name</th>
+			<th>Description</th>
+			<th>Min Value</th>
+			<th>Max Value</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>margin</td>
+			<td><span style="color:#c0392b">m-*</span></td>
+			<td>5</td>
+			<td>50</td>
+		</tr>
+		<tr>
+			<td>margin-top</td>
+			<td><span style="color:#c0392b">m-t-*</span></td>
+			<td>5</td>
+			<td>50</td>
+		</tr>
+		<tr>
+			<td>margin-right</td>
+			<td><span style="color:#c0392b">m-r-*</span></td>
+			<td>5</td>
+			<td>50</td>
+		</tr>
+		<tr>
+			<td>margin-bottom</td>
+			<td><span style="color:#c0392b">m-b-*</span></td>
+			<td>5</td>
+			<td>50</td>
+		</tr>
+		<tr>
+			<td>margin-left</td>
+			<td><span style="color:#c0392b">m-l-*</span></td>
+			<td>5</td>
+			<td>50</td>
+		</tr>
+		<tr>
+			<td>margin-top &amp; margin-bottom</td>
+			<td><span style="color:#c0392b">m-t-b-*</span></td>
+			<td>5</td>
+			<td>50</td>
+		</tr>
+		<tr>
+			<td>margin-left &amp; margin-right</td>
+			<td><span style="color:#c0392b">m-l-r-*</span></td>
+			<td>5</td>
+			<td>50</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp;</p>
+
+<table class="table table-hovered table-striped">
+	<thead>
+		<tr>
+			<th>Class Name</th>
+			<th>Description</th>
+			<th>Min Value</th>
+			<th>Max Value</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>padding</td>
+			<td><span style="color:#c0392b">p-*</span></td>
+			<td>5</td>
+			<td>50</td>
+		</tr>
+		<tr>
+			<td>padding-top</td>
+			<td><span style="color:#c0392b">p-t-*</span></td>
+			<td>5</td>
+			<td>50</td>
+		</tr>
+		<tr>
+			<td>padding-right</td>
+			<td><span style="color:#c0392b">p-r-*</span></td>
+			<td>5</td>
+			<td>50</td>
+		</tr>
+		<tr>
+			<td>padding-bottom</td>
+			<td><span style="color:#c0392b">p-b-*</span></td>
+			<td>5</td>
+			<td>50</td>
+		</tr>
+		<tr>
+			<td>padding-left</td>
+			<td><span style="color:#c0392b">p-l-*</span></td>
+			<td>5</td>
+			<td>50</td>
+		</tr>
+		<tr>
+			<td>padding-top &amp; padding-bottom</td>
+			<td><span style="color:#c0392b">p-t-b-*</span></td>
+			<td>5</td>
+			<td>50</td>
+		</tr>
+		<tr>
+			<td>padding-left &amp; padding-right</td>
+			<td><span style="color:#c0392b">p-l-r-*</span></td>
+			<td>5</td>
+			<td>50</td>
+		</tr>
+	</tbody>
+</table></p>
+                                <a href="#references">
+                <h2 id="references">
+                    5 . References
+                </h2>
+            </a>
+            <p><table class="table table-hovered table-striped">
+	<thead>
+		<tr>
+			<th style="text-align:left">PLUGINS</th>
+			<th style="text-align:left">LINK</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Jquery</td>
+			<td><a href="https://jquery.com/">https://jquery.com/</a></td>
+		</tr>
+		<tr>
+			<td>Bootstrap</td>
+			<td><a href="https://getbootstrap.com/">https://getbootstrap.com/</a></td>
+		</tr>
+		<tr>
+			<td>Chart JS</td>
+			<td><a href="http://www.chartjs.org/">http://www.chartjs.org/</a></td>
+		</tr>
+		<tr>
+			<td>Justgage</td>
+			<td><a href="https://justgage.com/">https://justgage.com/</a></td>
+		</tr>
+		<tr>
+			<td>Peity Charts</td>
+			<td><a href="https://benpickles.github.io/peity/">https://benpickles.github.io/peity/</a></td>
+		</tr>
+		<tr>
+			<td>Sparkline</td>
+			<td><a href="https://omnipotent.net/jquery.sparkline/#s-about">https://omnipotent.net/jquery.sparkline/#s-about</a></td>
+		</tr>
+		<tr>
+			<td>Ckeditor</td>
+			<td><a href="https://ckeditor.com/">https://ckeditor.com/</a></td>
+		</tr>
+		<tr>
+			<td>Clockpicker</td>
+			<td><a href="http://weareoutman.github.io/clockpicker/">http://weareoutman.github.io/clockpicker/</a></td>
+		</tr>
+		<tr>
+			<td>Colorpicker</td>
+			<td><a href="https://itsjavi.com/bootstrap-colorpicker/">https://itsjavi.com/bootstrap-colorpicker/</a></td>
+		</tr>
+		<tr>
+			<td>DataTable</td>
+			<td><a href="https://datatables.net/">https://datatables.net/</a></td>
+		</tr>
+		<tr>
+			<td>Datarangepicker</td>
+			<td><a href="http://www.daterangepicker.com/">http://www.daterangepicker.com/</a></td>
+		</tr>
+		<tr>
+			<td>Dropzone</td>
+			<td><a href="https://www.dropzonejs.com/">https://www.dropzonejs.com/</a></td>
+		</tr>
+		<tr>
+			<td>Jquery Steps</td>
+			<td><a href="http://www.jquery-steps.com/">http://www.jquery-steps.com</a></td>
+		</tr>
+		<tr>
+			<td>Fullcalendar</td>
+			<td><a href="https://fullcalendar.io/">https://fullcalendar.io/</a></td>
+		</tr>
+		<tr>
+			<td>Input Mask</td>
+			<td><a href="http://igorescobar.github.io/jQuery-Mask-Plugin/">http://igorescobar.github.io/jQuery-Mask-Plugin/</a></td>
+		</tr>
+		<tr>
+			<td>Lightbox</td>
+			<td><a href="https://dimsemenov.com/plugins/magnific-popup/">https://dimsemenov.com/plugins/magnific-popup/</a></td>
+		</tr>
+		<tr>
+			<td>Range Slider</td>
+			<td><a href="http://ionden.com/a/plugins/ion.rangeSlider/index.html">http://ionden.com/a/plugins/ion.rangeSlider/index.html</a></td>
+		</tr>
+		<tr>
+			<td>Select2</td>
+			<td><a href="https://select2.org/">https://select2.org/</a></td>
+		</tr>
+		<tr>
+			<td>Swipe Slider</td>
+			<td><a href="https://idangero.us/swiper/">https://idangero.us/swiper/</a></td>
+		</tr>
+		<tr>
+			<td>Tagsinput</td>
+			<td><a href="https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/">https://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/</a></td>
+		</tr>
+		<tr>
+			<td>Tour</td>
+			<td><a href="http://bootstraptour.com/">http://bootstraptour.com</a></td>
+		</tr>
+		<tr>
+			<td>Treeview</td>
+			<td><a href="https://www.jstree.com/">https://www.jstree.com/</a></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>&nbsp;</p></p>
+                        </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    $(function () {
+
+        $('body').scrollspy({
+            offset: 50,
+            target: '.table-of-contents'
+        });
+
+        $(document).on('click', 'a[href^="#"]', function (event) {
+            event.preventDefault();
+
+            $('html, body').animate({
+                scrollTop: $($.attr(this, 'href')).offset().top
+            }, 500);
+        });
+
+        $(document).on('click', '.table-of-contents a.nav-link', function () {
+            $(this).next('nav.nav').toggle();
+        });
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
