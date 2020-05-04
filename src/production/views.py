@@ -75,7 +75,7 @@ def cctv_frame_multi(cams_id):
 
         camera = Cameraset.objects.get(id=cams_id)
         frame = cap.read()
-        frame = imutils.resize(frame, width=200)
+        frame = imutils.resize(frame, width=100)
 
         convert = cv2.imencode('.jpg', frame)[1].tobytes()
         yield (b'--frame\r\n'
