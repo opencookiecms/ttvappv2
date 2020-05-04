@@ -121,3 +121,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+src/ttvapp/settings.py
+.vscode/settings.json
