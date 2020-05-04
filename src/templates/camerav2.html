@@ -22,7 +22,7 @@
         <div class="card-columns">
             {% for cctv in cameraset %}
             <div class="card">
-                <img id='' src="{% static 'camera-' %}{{ cctv.camera_no }}.jpg" width="100%">
+                <img id='' src="{% url 'cctv_groupimg' cctv.id %}" width="100%">
                 <div class="card-body">
                     <p class="card-text">
                     {{cctv.camera_name}}
