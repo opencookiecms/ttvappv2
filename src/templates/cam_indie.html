@@ -25,11 +25,11 @@
                 <div class="card">
                     <div class="card-header">Camera Video {{cameraset.camera_name}} </div>
                     <div class="card-body">
-                        <img id='' src="{% url 'cctv_group' cameraset.id %}" width="100%">
-              
+                        <img class="zoomwizard" id='' src="{% url 'cctv_group' cameraset.id %}" width="100%">
                     </div>
                 </div>
             </div>
+          
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-header">Actions</div>
@@ -70,5 +70,7 @@
     </div>
 
 </main>
+
+
 
 {% endblock content %}
