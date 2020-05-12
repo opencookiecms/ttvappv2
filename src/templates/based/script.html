@@ -1,5 +1,16 @@
 {% load static %}
 
+ 
+
+<script src="{% static 'Gramos/js/jquery-1.7.1.min.js' %}"></script>
+<script src="{% static 'Gramos/js/jquery.zoomwizard.js' %}"></script>
+
+ <script>
+var $ = jQuery;
+jQuery(document).ready(function($){
+     $('.zoomwizard').zoomwizard({ mode: 'controls', slider: true, movegizmo: true, zoombuttons: true, zoom: 4, autohide: true, controlstyle: 10, animated: false });
+});
+ </script>
 
 <script src="{% static 'Gramos/demos/assets/vendors/bundle.js' %}"></script>
 
@@ -25,6 +36,6 @@
 <script src="{% static 'Gramos/demos/assets/vendors/dataTable/dataTables.responsive.min.js' %}"></script>
 <script src="{% static 'Gramos/demos/assets/js/examples/datatable.js' %}"></script>
 
-<script src="{% static 'Gramos/js/jquery-1.7.1.min.js' %}"></script>
-<script src="{% static 'Gramos/js/jquery.zoomwizard.js' %}"></script>
+
+
 <!-- end::dataTable -->
