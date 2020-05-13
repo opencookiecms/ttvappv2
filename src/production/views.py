@@ -125,9 +125,9 @@ def cctv_frame(cams_id):
                         #cv2.imshow("countours", image)
 
 
-        frame = cv2.imencode('.jpg', image)[1].tobytes()
+        frame = cv2.imencode('.png', image)[1].tobytes()
         yield (b'--frame\r\n'
-            b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+            b'Content-Type: image/png\r\n\r\n' + frame + b'\r\n')
 
 def cctv_frame_multi(cams_id):
 
