@@ -2,8 +2,8 @@ from pyimagesearch.motion_detection import SingleMotionDetector
 from imutils.video import VideoStream
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.models import User, auth
-from django.http import HttpResponse
-from django.http import StreamingHttpResponse
+from django.http import StreamingHttpResponse, HttpResponse, HttpResponseServerError
+from django.views.decorators import gzip
 import threading
 import argparse
 import datetime
@@ -51,8 +51,6 @@ def cctv_frame(cams_id):
         ret, frame = cap.read()# import image
         frame = imutils.resize(frame, width=700)
      
-
-
         if(camera.camera_overlay == 1):
            
             point1 = [camera.camera_point1x,camera.camera_point1y] # p1(x,y)..............p2(x,y)
@@ -85,9 +83,7 @@ def cctv_frame(cams_id):
 
             image = cv2.resize(frame, (0, 0), None, 1, 1)  # resize image
 
-            
-          
-
+        
             if(camera.camera_detection == 1):
 
                 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)  # converts image to gray
@@ -124,7 +120,9 @@ def cctv_frame(cams_id):
                             #cv2.imshow("countours", image)
 
             frame = cv2.imencode('.png', image)[1].tobytes()
-            yield (b'--frame\r\n'b'Content-Type: image/png\r\n\r\n' + frame + b'\r\n')
+            stringData=frame.tostring()
+            yield (b'--frame\r\n'b'Content-Type: image/png\r\n\r\n' + stringData + b'\r\n')
+    del(camera)
  
 
   
@@ -132,11 +130,13 @@ def cctv_groupimg(request,id):
     if request.method == 'GET':
         return StreamingHttpResponse(cctv_cap(id), content_type='multipart/x-mixed-replace; boundary=frame')
     
-
+@gzip.gzip_page
 def cctv_group(request,id):
     if request.method == 'GET':
-         return StreamingHttpResponse(cctv_frame(id), content_type='multipart/x-mixed-replace; boundary=frame')
-
+        try:
+            return StreamingHttpResponse(cctv_frame(id), content_type='multipart/x-mixed-replace; boundary=frame')
+        except HttpResponseServerError as e:
+            print("abrout")
 
 def camera_list(request):
     return render(request, 'camera_list.html')
