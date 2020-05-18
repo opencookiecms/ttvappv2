@@ -10,15 +10,11 @@ import datetime
 import imutils
 import time
 import cv2
-
-
 import numpy as np
 from django.templatetags.static import static
 from .forms import AddProjectForm,UpdateProjectForm,CellForm,CameraForm,CCTVSettingForm,InventoryForm
 from .models import Ttvproject,Ttvcell,Cctvgroup,Cameraset,Cctvline,InventoryProduct,Groupcell
 
-
-outputFrame = None
 
 def index(request):
     return render(request, 'dashboard.html')
@@ -43,10 +39,8 @@ def cctv_cam(id):
 def cctv_frame(cams_id):
 
     cam = cctv_cam(cams_id)
-    #cap = cv2.VideoCapture(cam)
-    vs = VideoStream(src=cam).start()
+    cap = cv2.VideoCapture(cam)
     time.sleep(2.0)
-    #cap = CameraStream(cams_id).start()
     sub = cv2.createBackgroundSubtractorMOG2()
 
     while cap:
@@ -124,8 +118,8 @@ def cctv_frame(cams_id):
                             #cv2.imshow("countours", image)
 
             frame = cv2.imencode('.png', image)[1].tobytes()
-            stringData=frame.tostring()
-            yield (b'--frame\r\n'b'Content-Type: image/png\r\n\r\n' + stringData + b'\r\n')
+         
+            yield (b'--frame\r\n'b'Content-Type: image/png\r\n\r\n' + frame + b'\r\n')
     del(camera)
  
 
