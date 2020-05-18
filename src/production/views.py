@@ -18,6 +18,8 @@ from .forms import AddProjectForm,UpdateProjectForm,CellForm,CameraForm,CCTVSett
 from .models import Ttvproject,Ttvcell,Cctvgroup,Cameraset,Cctvline,InventoryProduct,Groupcell
 
 
+outputFrame = None
+
 def index(request):
     return render(request, 'dashboard.html')
     
@@ -34,14 +36,16 @@ def cctv_cam(id):
     camera = Cameraset.objects.get(id=id)
     cl = camera.camera_link
     print(cl)
-
+    
     return cl
 
 
 def cctv_frame(cams_id):
 
     cam = cctv_cam(cams_id)
-    cap = cv2.VideoCapture(cam)
+    #cap = cv2.VideoCapture(cam)
+    vs = VideoStream(src=cam).start()
+    time.sleep(2.0)
     #cap = CameraStream(cams_id).start()
     sub = cv2.createBackgroundSubtractorMOG2()
 
@@ -51,8 +55,6 @@ def cctv_frame(cams_id):
         ret, frame = cap.read()# import image
         frame = imutils.resize(frame, width=700)
      
-
-
         if(camera.camera_overlay == 1):
            
             point1 = [camera.camera_point1x,camera.camera_point1y] # p1(x,y)..............p2(x,y)
