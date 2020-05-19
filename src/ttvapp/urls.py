@@ -21,7 +21,8 @@ from production.views import (
     Celllist,
     Cellmanage,
     Updatecell,
-    Cctvbyproject
+    Cctvbyproject,
+    cctv_all
     )
 
 urlpatterns = [
@@ -44,6 +45,7 @@ urlpatterns = [
     path('cell-manage',Cellmanage, name='cell-manage'),
     path('update-cell/<int:cid>/',Updatecell, name='update-cell'),
     path('camera-edit/<int:cid>/',Updatecamera, name='camera-edit'),
+    path('cctv_all', cctv_all, name='cctv_all'),
 
     path('cameraproject/<int:ppid>/', Cctvbyproject, name='cameraproject'),
 ]

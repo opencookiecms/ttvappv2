@@ -40,12 +40,14 @@ def cctv_frame(cams_id):
 
     cam = cctv_cam(cams_id)
     cap = cv2.VideoCapture(cam)
+    #fps = FPS().start()
     time.sleep(2.0)
     sub = cv2.createBackgroundSubtractorMOG2()
 
     while cap:
 
         camera = Cameraset.objects.get(id=cams_id)
+        cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
         ret, frame = cap.read()# import image
         frame = imutils.resize(frame, width=700)
      
@@ -118,8 +120,8 @@ def cctv_frame(cams_id):
                             #cv2.imshow("countours", image)
 
             frame = cv2.imencode('.png', image)[1].tobytes()
-         
             yield (b'--frame\r\n'b'Content-Type: image/png\r\n\r\n' + frame + b'\r\n')
+            #fps.update()
     del(camera)
  
 
@@ -190,6 +192,12 @@ def cctv_camera(request, group_name):
     }
 
     return render(request, 'camerav2.html',contex)
+
+def cctv_all(request):
+    contex = {
+        'cameraset':Cameraset.objects.filter(camera_group=7),
+    }
+    return render(request, 'camerav3.html',contex)
 
 def CctvCameraProject(request, projectid):
 
