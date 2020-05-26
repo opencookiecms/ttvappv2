@@ -1,7 +1,7 @@
 'use strict';
 $(document).ready(function () {
 
-    $('input[name="single-date-picker"]').daterangepicker({
+    $('#invdate').daterangepicker({
         singleDatePicker: true,
         showDropdowns: true
     });

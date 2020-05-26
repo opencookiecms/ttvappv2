@@ -220,36 +220,71 @@ class InventoryForm(forms.ModelForm):
 
     product_name = forms.CharField(widget=forms.TextInput(attrs={
         'class':'form-control','placeholder':'Product Name'}))
-    product_transaction = forms.CharField(required=False, widget=forms.TextInput(attrs={
-        'class':'form-control','placeholder':'Product Transaction'})) 
-    product_partno = forms.CharField(required=False, widget=forms.TextInput(attrs={
-        'class':'form-control','placeholder':'Part Number'}))
-    product_desc =forms.CharField(required=False, widget=forms.Textarea(attrs={
-        'class':'form-control','placeholder':'Description of Product'})) 
-    product_job =forms.CharField(required=False, widget=forms.TextInput(attrs={
-        'class':'form-control','placeholder':'Job Number'}))
-    product_unit = forms.CharField(required=False, widget=forms.TextInput(attrs={
-        'class':'form-control','placeholder':'Product Unit'}))
-    product_photo = forms.ImageField(required=False)
-
-    product_duration = forms.CharField(required=False, widget=forms.TextInput(attrs={
-        'class':'form-control','placeholder':'Duration of Product'}))
-        
-    product_location = forms.CharField(required=False,widget=forms.TextInput(attrs={
+    product_supplier = forms.CharField(widget=forms.TextInput(attrs={
+        'class':'form-control','placeholder':'Supplier Name'}))
+    product_ttvpn = forms.CharField(widget=forms.TextInput(attrs={
+        'class':'form-control','placeholder':'TTV/PN No'}))
+    product_desc = forms.CharField(required=False, widget=forms.Textarea(attrs={
+        'class':'form-control','placeholder':'Description of Product'}))  
+    product_qty = forms.IntegerField(required=False, widget=forms.TextInput(attrs={
+        'class':'form-control','placeholder':'Quantity of item','value':'0'
+    })) 
+    product_partno = forms.CharField(widget=forms.TextInput(attrs={
+        'class':'form-control','placeholder':'Part No'}))
+    product_oum = forms.CharField(widget=forms.TextInput(attrs={
+        'class':'form-control','placeholder':'OUM'}))  
+    product_location = forms.CharField(widget=forms.TextInput(attrs={
         'class':'form-control','placeholder':'Location'}))
-    
+    product_jobno = forms.CharField(widget=forms.TextInput(attrs={
+        'class':'form-control','placeholder':'Job Number'}))
+
+    product_currency = forms.DecimalField(required=False, widget=forms.NumberInput(attrs={
+        'class':'form-control','placeholder': 'Currency'}))
+    product_febexcrate= forms.DecimalField(required=False, widget=forms.NumberInput(attrs={
+        'class':'form-control','placeholder': 'feb EXC Rate'}))
+    product_totalprice = forms.DecimalField(required=False, widget=forms.NumberInput(attrs={
+        'class':'form-control','placeholder': 'Total of price'}))
+    product_pricefrom = forms.DecimalField(required=False, widget=forms.NumberInput(attrs={
+        'class':'form-control','placeholder': 'Total of price'})) 
+    product_company = forms.CharField(widget=forms.TextInput(attrs={
+        'class':'form-control','placeholder':'Company'}))  
+    product_ponumbers = forms.CharField(widget=forms.TextInput(attrs={
+        'class':'form-control','placeholder':'PO. Number'}))  
+    product_invoice = forms.CharField(widget=forms.TextInput(attrs={
+        'id':'','class':'form-control','placeholder':'Invoice No'}))  
+    product_invdate = forms.CharField(widget=forms.TextInput(attrs={
+         'id':'invdate','class':'form-control','placeholder':'Invoice Date'}))  
+
+    product_remarks = forms.CharField(required=False, widget=forms.Textarea(attrs={
+        'class':'form-control','placeholder':'Remark'})) 
+
+    product_photo = forms.ImageField(required=False)
+ 
     class Meta:
         model = InventoryProduct
         fields = [
+
             'product_name',
-            'product_transaction',
-            'product_partno',
+            'product_supplier', 
+            'product_ttvpn',
             'product_desc', 
-            'product_job', 
-            'product_unit',
-            'product_photo',
-            'product_duration', 
-            'product_location'
+            'product_qty', 
+            'product_partno', 
+            'product_oum', 
+            'product_location',
+            'product_jobno', 
+            'product_currency', 
+            'product_febexcrate',
+            'product_totalprice', 
+            'product_pricefrom',  
+            'product_company', 
+            'product_ponumbers', 
+            'product_invoice',  
+            'product_invdate', 
+
+            'product_remarks',
+
+            'product_photo' 
         ]
 
 

@@ -114,14 +114,27 @@ class Cctvline(models.Model):
 
 class InventoryProduct(models.Model):
     product_name = models.CharField(max_length=150, blank=True)
-    product_transaction = models.CharField(max_length=20, blank=True) 
-    product_partno = models.CharField(max_length=150, blank=True)
+    product_supplier = models.CharField(max_length=150, blank=True)
+    product_ttvpn = models.CharField(max_length=50, blank=True)
     product_desc = models.TextField(blank=True) 
-    product_job = models.CharField(max_length=150, blank=True)
-    product_unit = models.CharField(max_length=150, blank=True)
+    product_qty = models.IntegerField(default=0, blank=True) 
+    product_partno = models.CharField(max_length=150, blank=True)
+    product_oum = models.CharField(max_length=20, blank=True)
+    product_location = models.TextField(max_length=50, blank=True)
+    product_jobno = models.CharField(max_length=150, blank=True)
+
+    product_currency = models.DecimalField(max_digits=5, decimal_places=2, blank=True)
+    product_febexcrate= models.DecimalField(max_digits=5, decimal_places=2, blank=True)
+    product_totalprice = models.DecimalField(max_digits=5, decimal_places=2, blank=True)
+    product_pricefrom = models.CharField(max_length=30, blank=True)
+    product_company = models.CharField(max_length=30, blank=True)
+    product_ponumbers = models.CharField(max_length=30, blank=True)
+    product_invoice = models.CharField(max_length=30, blank=True)
+    product_invdate = models.CharField(max_length=30, blank=True)
+
+    product_remarks = models.CharField(max_length=150, blank=True)
     product_photo = models.FileField(blank=True)
-    product_duration = models.CharField(max_length=150, blank=True)
-    product_location = models.TextField(max_length=150, blank=True)
+   
 
 class ProductTest(models.Model):
     test = models.CharField(max_length=150, blank=True)
