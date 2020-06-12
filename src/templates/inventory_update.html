@@ -27,55 +27,110 @@
                     <h5 class="card-title">Update Item</h5>
                     <form action='.' method='POST' enctype="multipart/form-data">
                         {% csrf_token %}
-                        <div class="form-row">
-                            <div class="col-md-6 mb-3">
-                                
+                       <div class="form-row">
+                            <div class="col-md-12 mb-3">
                                 <label>Product name</label>
                                 {{form.product_name}}
                             </div>
                         </div>
-                        <div class="form-row">
+                         <div class="form-row">
                             <div class="col-md-6 mb-3">
-                                <label>Product Transaction</label>
-                                 {{form.product_transaction}}
+                                <label>Supplier</label>
+                                 {{form.product_supplier}}
                             </div>
+                            <div class="col-md-6 mb-3">
+                                <label>TTVPN</label>
+                                 {{form.product_ttvpn}}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <label>Product Description</label>
+                                 {{form.product_desc}}
+                            </div>
+                        </div>
+                         <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label>Quantity</label>
+                                 {{form.product_qty}}
+                            </div>
+                        </div>
+                        <div class="form-row">
                             <div class="col-md-6 mb-3">
                                 <label>Part No</label>
                                  {{form.product_partno}}
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-md-7 mb-3">
-                                <label>Product Description</label>
-                                 {{form.product_desc}}
-                            </div>
-                        </div>
-                        <div class="form-row">
                             <div class="col-md-6 mb-3">
-                                <label>Job Number</label>
-                                 {{form.product_job}}
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md-6 mb-3">
-                                <label>Duration</label>
-                                 {{form.product_duration}}
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md-6 mb-3">
-                                <label>Product Unit</label>
-                                 {{form.product_unit}}
+                                <label>OUM</label>
+                                 {{form.product_oum}}
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label>Location</label>
                                  {{form.product_location}}
                             </div>
                         </div>
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <label>Job Number</label>
+                                 {{form.product_jobno}}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label>Currency</label>
+                                {{form.product_currency}}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label>Feb excRate</label>
+                                {{form.product_febexcrate}}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label>Total Price</label>
+                                {{form.product_totalprice}}
+                            </div>
+                        </div>
                          <div class="form-row">
                             <div class="col-md-6 mb-3">
-                                <label>Photos</label>
-                                 {{form.product_photo}}
+                                <label>Price from:-</label>
+                                {{form.product_pricefrom}}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <label>Company</label>
+                                {{form.product_company}}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label>PO Numbers</label>
+                                {{form.product_ponumbers}}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label>Invoice</label>
+                                {{form.product_invoice}}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label>Invoice Date</label>
+                                {{form.product_invdate}}
+                            </div>
+                        </div>
+                         <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <label>Remark</label>
+                                {{form.product_remarks}}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label>Photo</label>
+                                {{form.product_photo}}
                             </div>
                         </div>
                         <div class="form-row">

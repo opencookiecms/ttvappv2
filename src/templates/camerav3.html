@@ -25,7 +25,8 @@
              
                 <div class="card-body">
                     <p class="card-text">
-                    <iframe style="width:320px; height:240px;" allowfullscreen src="http://192.168.0.208:8080/{{cctv.camera_name}}/embed.html"></iframe>
+                   
+                    <iframe width="300" height="200" src="http://192.168.0.164:5080/LiveApp/play.html?name={{cctv.camera_name}}" frameborder="0" allowfullscreen></iframe>
                     
                     <br>
                     <a href="{% url 'singlecam' cctv.id %}" class="btn btn-outline-success">More Info</a> 
