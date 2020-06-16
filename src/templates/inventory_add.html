@@ -24,7 +24,7 @@
             <div class="col-md-7">
               <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Add Item</h5>
+                    <h5 class="card-title">Add Item test</h5>
                     <form action='{% url 'add-inventory' %}' method='POST' enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="form-row">
@@ -119,6 +119,7 @@
                             <div class="col-md-6 mb-3">
                                 <label>Invoice Date</label>
                                 {{form.product_invdate}}
+
                             </div>
                         </div>
                         <div class="form-row">
@@ -131,8 +132,11 @@
                             <div class="col-md-6 mb-3">
                                 <label>Photo</label>
                                 {{form.product_photo}}
+                
                             </div>
                         </div>
+                
+                        
                         <div class="form-row">
                             <div class="col-md-4 mb-3">
                                 <button type="submit" name="submit" class="btn btn-outline-success">Save</button>

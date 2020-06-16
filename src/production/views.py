@@ -21,9 +21,12 @@ def index(request):
     
 
 def cctv_dashboard(request):
+
+ 
     context = {
         'title':'by group',
         'camcategory':Cctvgroup.objects.all(),
+        'count': Cameraset.objects.filter(camera_group=7).count()
     } 
     return render(request, 'cctv_dashboard.html',context)
 
