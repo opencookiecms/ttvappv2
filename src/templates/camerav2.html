@@ -19,26 +19,22 @@
         </div>
         <!-- end::page header -->
 
+     
+           <div class="row">
+              {% for cctv in cameraset %}
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <iframe class="responsive-iframe" width="300" height="240" src="//192.168.0.164:5080/WebRTCApp/play.html?name={{cctv.camera_name}}" frameborder="0" allowfullscreen autoplay="1"></iframe>
 
-        <div class="card-columns">
-            {% for cctv in cameraset %}
-            <div class="card">
-             
-                <div class="card-body">
-                    <p class="card-text">
-                    Camera No:- {{cctv.camera_no}}
-                    <br>
+      </div>
+    </div>
+  </div>
+   {% endfor %}
+</div>
+     
 
-                    <iframe width="300" height="195" src="//192.168.0.164:5080/WebRTCApp/play.html?name={{cctv.camera_name}}" frameborder="0" allowfullscreen autoplay="true"></iframe>
-                     
-                    <br>
-                    <a href="{% url 'singlecam' cctv.id %}" class="btn btn-outline-success">More Info</a> 
-                    </p>
-                </div>
-            </div>
-            {% endfor %}
-
-        </div>
+   
 
     </div>
 
