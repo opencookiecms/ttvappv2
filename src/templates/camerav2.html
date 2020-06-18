@@ -26,6 +26,7 @@
     <div class="card">
       <div class="card-body">
         <iframe class="responsive-iframe" width="300" height="240" src="//192.168.0.164:5080/WebRTCApp/play.html?name={{cctv.camera_name}}" frameborder="0" allowfullscreen autoplay="1"></iframe>
+        <a href="{% url 'singlecam' cctv.id %}" class="btn btn-outline-success">More Info</a> 
 
       </div>
     </div>

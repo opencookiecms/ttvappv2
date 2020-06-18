@@ -11,6 +11,7 @@ import imutils
 import time
 import cv2
 import numpy as np
+from vidgear.gears import CamGear
 from django.templatetags.static import static
 from .forms import AddProjectForm,UpdateProjectForm,CellForm,CameraForm,CCTVSettingForm,InventoryForm
 from .models import Ttvproject,Ttvcell,Cctvgroup,Cameraset,Cctvline,InventoryProduct,Groupcell
@@ -34,10 +35,27 @@ def cctv_cam(id):
 
     camera = Cameraset.objects.get(id=id)
     cl = camera.camera_link
-    print(cl)
+    print("hello"+cl)
     
     return cl
 
+
+def camera_gear(id):
+    
+    cam = cctv_cam(id)
+    print(cam)
+    stream = CamGear(source=cam).start()
+
+    while True:
+
+        frame = stream.read()
+
+        if frame is None:
+            break
+    
+        frame = cv2.imencode('.png', frame)[1].tobytes()
+        yield (b'--frame\r\n'b'Content-Type: image/png\r\n\r\n' + frame + b'\r\n')
+    
 
 def cctv_frame(cams_id):
 
@@ -137,7 +155,7 @@ def cctv_groupimg(request,id):
 def cctv_group(request,id):
     if request.method == 'GET':
         try:
-            return StreamingHttpResponse(cctv_frame(id), content_type='multipart/x-mixed-replace; boundary=frame')
+            return StreamingHttpResponse(camera_gear(id), content_type='multipart/x-mixed-replace; boundary=frame')
         except HttpResponseServerError as e:
             print("abrout")
 
