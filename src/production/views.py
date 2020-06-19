@@ -44,18 +44,21 @@ def camera_gear(id):
     
     cam = cctv_cam(id)
     print(cam)
-    stream = CamGear(source=cam).start()
+    options = {"CAP_PROP_FRAME_WIDTH":320, "CAP_PROP_FRAME_HEIGHT":240, "CAP_PROP_FPS":70}
+    stream = CamGear(source=cam, **options).start()
 
     while True:
 
         frame = stream.read()
+        frame = imutils.resize(frame, width=450)
 
         if frame is None:
             break
     
         frame = cv2.imencode('.png', frame)[1].tobytes()
         yield (b'--frame\r\n'b'Content-Type: image/png\r\n\r\n' + frame + b'\r\n')
-    
+    stream.stop()
+ 
 
 def cctv_frame(cams_id):
 
