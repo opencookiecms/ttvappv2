@@ -110,12 +110,15 @@ class CameraForm(forms.ModelForm):
     camera_no = forms.IntegerField(required=False, widget=forms.TextInput(attrs={
         'class':'form-control','placeholder':'Camera No','value':'0'
     }))
-    camera_link = forms.CharField(required=False, widget=forms.TextInput(attrs={
-        'class':'form-control','placeholder':'Link of Camera'}))
-    camera_image = forms.CharField(required=False, widget=forms.TextInput(attrs={
-        'class':'form-control','placeholder':'Camera Image'}))
-    
-    camera_main = forms.BooleanField(required=False)
+    camera_link1 = forms.CharField(required=False, widget=forms.TextInput(attrs={
+        'class':'form-control','placeholder':'Link for master camera'}))
+    camera_link2 = forms.CharField(required=False, widget=forms.TextInput(attrs={
+        'class':'form-control','placeholder':'Link for slave camera'}))
+    camera_main = forms.CharField(required=False, widget=forms.TextInput(attrs={
+        'class':'form-control','placeholder':'Main camera id'}))
+    camera_slave = forms.CharField(required=False, widget=forms.TextInput(attrs={
+        'class':'form-control','placeholder':'Slave camera id'}))
+
 
     camera_point1x =forms.IntegerField(required=False, widget=forms.TextInput(attrs={
         'class':'form-control','placeholder':'Overlay Point x1','value':'0'
@@ -169,9 +172,11 @@ class CameraForm(forms.ModelForm):
         fields = [
             'camera_name',
             'camera_no',
-            'camera_link',
-            'camera_image',
+            'camera_link1',
+            'camera_link2',
+          
             'camera_main',
+            'camera_slave',
 
             'camera_point1x',
             'camera_point1y',
@@ -218,41 +223,41 @@ class CCTVSettingForm(forms.ModelForm):
 
 class InventoryForm(forms.ModelForm):
 
-    product_name = forms.CharField(widget=forms.TextInput(attrs={
+    product_name = forms.CharField(required=False, widget=forms.TextInput(attrs={
         'class':'form-control','placeholder':'Product Name'}))
-    product_supplier = forms.CharField(widget=forms.TextInput(attrs={
+    product_supplier = forms.CharField(required=False, widget=forms.TextInput(attrs={
         'class':'form-control','placeholder':'Supplier Name'}))
-    product_ttvpn = forms.CharField(widget=forms.TextInput(attrs={
+    product_ttvpn = forms.CharField(required=False, widget=forms.TextInput(attrs={
         'class':'form-control','placeholder':'TTV/PN No'}))
     product_desc = forms.CharField(required=False, widget=forms.Textarea(attrs={
         'class':'form-control','placeholder':'Description of Product'}))  
     product_qty = forms.IntegerField(required=False, widget=forms.TextInput(attrs={
         'class':'form-control','placeholder':'Quantity of item','value':'0'
     })) 
-    product_partno = forms.CharField(widget=forms.TextInput(attrs={
+    product_partno = forms.CharField(required=False, widget=forms.TextInput(attrs={
         'class':'form-control','placeholder':'Part No'}))
-    product_oum = forms.CharField(widget=forms.TextInput(attrs={
+    product_oum = forms.CharField(required=False, widget=forms.TextInput(attrs={
         'class':'form-control','placeholder':'OUM'}))  
-    product_location = forms.CharField(widget=forms.TextInput(attrs={
+    product_location = forms.CharField(required=False, widget=forms.TextInput(attrs={
         'class':'form-control','placeholder':'Location'}))
-    product_jobno = forms.CharField(widget=forms.TextInput(attrs={
+    product_jobno = forms.CharField(required=False, widget=forms.TextInput(attrs={
         'class':'form-control','placeholder':'Job Number'}))
 
-    product_currency = forms.DecimalField(required=False, widget=forms.NumberInput(attrs={
+    product_currency = forms.CharField(required=False, widget=forms.TextInput(attrs={
         'class':'form-control','placeholder': 'Currency'}))
-    product_febexcrate= forms.DecimalField(required=False, widget=forms.NumberInput(attrs={
+    product_febexcrate= forms.CharField(required=False,widget=forms.TextInput(attrs={
         'class':'form-control','placeholder': 'feb EXC Rate'}))
-    product_totalprice = forms.DecimalField(required=False, widget=forms.NumberInput(attrs={
+    product_totalprice = forms.CharField(required=False,widget=forms.TextInput(attrs={
         'class':'form-control','placeholder': 'Total of price'}))
-    product_pricefrom = forms.DecimalField(required=False, widget=forms.NumberInput(attrs={
-        'class':'form-control','placeholder': 'Total of price'})) 
-    product_company = forms.CharField(widget=forms.TextInput(attrs={
+    product_pricefrom = forms.CharField(required=False, widget=forms.TextInput(attrs={
+        'class':'form-control','placeholder': 'price from'})) 
+    product_company = forms.CharField(required=False, widget=forms.TextInput(attrs={
         'class':'form-control','placeholder':'Company'}))  
-    product_ponumbers = forms.CharField(widget=forms.TextInput(attrs={
+    product_ponumbers = forms.CharField(required=False, widget=forms.TextInput(attrs={
         'class':'form-control','placeholder':'PO. Number'}))  
-    product_invoice = forms.CharField(widget=forms.TextInput(attrs={
+    product_invoice = forms.CharField(required=False, widget=forms.TextInput(attrs={
         'id':'','class':'form-control','placeholder':'Invoice No'}))  
-    product_invdate = forms.CharField(widget=forms.TextInput(attrs={
+    product_invdate = forms.CharField(required=False, widget=forms.TextInput(attrs={
          'id':'invdate','class':'form-control','placeholder':'Invoice Date'}))  
 
     product_remarks = forms.CharField(required=False, widget=forms.Textarea(attrs={

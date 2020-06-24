@@ -29,8 +29,8 @@
                     <tr>
                         <th>id</th>
                         <th>Camera Name</th>
-                        <th>Camera No</th>
-                        <th>Link</th>
+                        <th>Camera ID</th>
+                        <th>Camera Cell</th>
                         <th>Location</th>
                         <th>Project View</th>
                         <th>Action</th>
@@ -41,8 +41,11 @@
                     <tr>
                         <td>{{cm.id}}</td>
                         <td>{{cm.camera_name}}</td>
-                        <td>{{cm.camera_no}}</td>
-                        <td>{{cm.camera_link}}</td>
+                        <td>
+                        Main  :{{cm.camera_main}}</br>
+                        Slave :{{cm.camera_slave}}
+                        </td>
+                        <td>{{cm.camera_cell}}</td>
                         <td>
                         {{cm.camera_group.cgroup_name}}<br>
                         {{cm.camera_cells.cell_name}}

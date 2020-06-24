@@ -62,11 +62,15 @@ class Cameraset(models.Model):
 
     camera_name = models.CharField(max_length=50, blank=True)
     camera_no = models.IntegerField(default=0, blank=True)
-    test = models.CharField(max_length=200, blank=True)
-    camera_link = models.CharField(max_length=200, blank=True)
-    camera_image = models.FileField(blank=True)
-    camera_main = models.BooleanField(blank=True, null=True)
-
+    #test = models.CharField(max_length=200, blank=True)
+    camera_link1 = models.CharField(max_length=200, blank=True)
+    camera_link2 = models.CharField(max_length=200, blank=True)
+ 
+    #camera_image = models.FileField(blank=True)
+    #camera_main = models.BooleanField(blank=True, null=True)
+    camera_main = models.CharField(max_length=200, blank=True)
+    camera_slave = models.CharField(max_length=200, blank=True)
+    
     camera_point1x = models.IntegerField(default=0, blank=True)
     camera_point1y = models.IntegerField(default=0, blank=True)
     camera_point2x =  models.IntegerField(default=0, blank=True)
@@ -123,9 +127,9 @@ class InventoryProduct(models.Model):
     product_location = models.TextField(max_length=50, blank=True)
     product_jobno = models.CharField(max_length=150, blank=True)
 
-    product_currency = models.DecimalField(max_digits=5, decimal_places=2, blank=True)
-    product_febexcrate= models.DecimalField(max_digits=5, decimal_places=2, blank=True)
-    product_totalprice = models.DecimalField(max_digits=5, decimal_places=2, blank=True)
+    product_currency = models.CharField(max_length=10, blank=True)
+    product_febexcrate= models.CharField(max_length=10, blank=True)
+    product_totalprice = models.CharField(max_length=10, blank=True)
     product_pricefrom = models.CharField(max_length=30, blank=True)
     product_company = models.CharField(max_length=30, blank=True)
     product_ponumbers = models.CharField(max_length=30, blank=True)
