@@ -256,6 +256,7 @@ def Addinventory(request):
 
         form.save()
         #form.InventoryForm()
+        return redirect('inventory')
 
     data = {
         'form':form
