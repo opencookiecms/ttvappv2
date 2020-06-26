@@ -32,12 +32,13 @@
                     <br>
                     {% else %}
                     <h5 class="font-weight-bold">{{row.cell_project.p_name}}</h5>         
-                    {{row.cell_project.p_company}}
-                    {{row.cell_project.id}}
+                    {{row.cell_project.p_code}}<br>
+                    {{row.cell_project.p_desc}}
+                    {{row.cell_project.p_code}}
                     <br>
                     <br>
                     {% endif %}
-                     <a href="{{row.cell_project.get_absolute_url}}" class="btn btn-outline-light">More info</a>
+                     <a href="{{row.get_absolute_url}}" class="btn btn-outline-light">More info</a>
                 </div>
             </div>
           
@@ -59,7 +60,7 @@
                     <br>
                     <br>
                     {% endif %}
-                     <a href="" class="btn btn-outline-light">More Info</a>
+                    <a href="{{row.get_absolute_url}}" class="btn btn-outline-light">More info</a>
                 </div>
             </div>
             {% endfor %}
@@ -80,7 +81,7 @@
                     <br>
                     <br>
                     {% endif %}
-                     <a href="" class="btn btn-outline-light">More Info</a>
+                     <a href="{{row.get_absolute_url}}" class="btn btn-outline-light">More info</a>
                 </div>
             </div>
             {% endfor %}
@@ -102,7 +103,7 @@
                     <br>
                     <br>
                     {% endif %}
-                     <a href="" class="btn btn-outline-light">More Info</a>
+                    <a href="{{row.get_absolute_url}}" class="btn btn-outline-light">More info</a>
                 </div>
             </div>
             {% endfor %}

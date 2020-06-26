@@ -25,7 +25,8 @@ from production.views import (
     cctv_all,
     inventoryview,
     Addinventory,
-    UpdateInventory
+    UpdateInventory,
+    tmpsinglecam
     )
 
 urlpatterns = [
@@ -35,7 +36,8 @@ urlpatterns = [
     path('cctv',cctv_dashboard, name='cctv'), #cctv_dashboard.html
     path('camera/<int:group_name>/',cctv_camera, name='camera'),#camerav2.html
     path('camera_list', Cameramanage, name="camera_list"),#manage_camera.html
-    path('singlecam/<int:camera_id>/', singlecam, name='singlecam'),#cam_indie.html
+    #path('singlecam/<int:camera_id>/', singlecam, name='singlecam'),#cam_indie.html
+    path('singlecam/<int:camera_id>/', tmpsinglecam, name='tmpsinglecam'),
     path('cctv_group/<int:id>', cctv_group, name="cctv_group"),#cmaera link
     path('cctv_groupimg/<int:id>', cctv_group, name="cctv_groupimg"),#camera link multi
     path('add-project', Addproject, name='add-project'),
@@ -54,6 +56,7 @@ urlpatterns = [
     path('update-inventory/<int:iid>/', UpdateInventory, name='update-inventory'),
 
     path('cameraproject/<int:ppid>/', Cctvbyproject, name='cameraproject'),
+    path('cellcamera/<int:ppid>/', Cctvbyproject, name='cellcamera')
 ]
 
 if settings.DEBUG:

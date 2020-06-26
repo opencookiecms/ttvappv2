@@ -22,12 +22,13 @@
         <div class="card-columns">
             {% for cams in cam %}
             <div class="card">
-                <img id='' src="{% static 'camera-' %}{{ cams.camera_no }}.jpg" width="100%">
+            <iframe class="responsive-iframe" width="300" height="240" src="//192.168.0.164:5080/WebRTCApp/play.html?name={{cams.camera_slave}}" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+    
                 <div class="card-body">
                     <p class="card-text">
                      {{cams.camera_name}}
                      <br>
-                     <a href="{% url 'singlecam' cams.id %}" class="btn btn-outline-success">MoreInfo</a> 
+                     <a href="{% url 'tmpsinglecam' cams.id %}" class="btn btn-outline-success">MoreInfo</a> 
                     </p>
                 </div>
             </div>

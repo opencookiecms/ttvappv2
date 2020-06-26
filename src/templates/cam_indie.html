@@ -23,11 +23,9 @@
         
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Camera Video {{cameraset.camera_name}} </div>
+                    <div class="card-header">Camera Video {{camera.camera_name}} </div>
                     <div class="card-body">
-                    <!--
-                        <img class="zoomwizard" id='' src="{% url 'cctv_group' cameraset.id %}" width="4%">-->
-                        <iframe class="responsive-iframe" width="300" height="240" src="//192.168.0.164:5080/WebRTCApp/play.html?name={{cctv.camera_slave}}" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+                        <iframe class="responsive-iframe" width="100%" height="400" src="//192.168.0.164:5080/WebRTCApp/play.html?name={{camera.camera_main}}" frameborder="0" allowfullscreen allow="autoplay"></iframe>
                     </div>
                 </div>
             </div>

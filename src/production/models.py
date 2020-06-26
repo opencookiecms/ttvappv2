@@ -17,6 +17,7 @@ class Ttvproject(models.Model):
     p_company = models.CharField(max_length=100, blank=True)
     p_code = models.CharField(max_length=150, blank=True)
     p_model = models.CharField(max_length=150, blank=True)
+    p_desc = models.CharField(max_length=150, blank=True)
     p_startdate = models.CharField(max_length=150, blank=True)
     p_enddate = models.CharField(max_length=150, blank=True)
     p_status = models.CharField(max_length=150, blank=True)
@@ -42,7 +43,9 @@ class Ttvcell(models.Model):
     cell_group = models.ForeignKey(Groupcell, blank=True, null=True, on_delete = models.SET_NULL)
     cell_project = models.ForeignKey(Ttvproject,  blank=True, null=True, on_delete = models.SET_NULL)
 
-
+    def get_absolute_url(self):
+        return reverse("cellcamera", kwargs={"ppid": self.id})
+    
     def __str__(self):
         return self.cell_name
 

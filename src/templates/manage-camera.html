@@ -52,7 +52,7 @@
                         </td>
                         <td>{{cm.camera_project.p_name}}</td>
                         <td>
-                            <a href="{% url 'singlecam' cm.id %}" class="btn btn-outline-warning btn-rounded btn-uppercase"><i class="ti-settings m-r-5"></i>View</a> <a href="{% url 'camera-edit' cid=cm.id %}" class="btn btn-outline-warning btn-rounded btn-uppercase"><i class="ti-settings m-r-5"></i>Edit</a>
+                            <a href="{% url 'tmpsinglecam' cm.id %}" class="btn btn-outline-warning btn-rounded btn-uppercase"><i class="ti-settings m-r-5"></i>View</a> <a href="{% url 'camera-edit' cid=cm.id %}" class="btn btn-outline-warning btn-rounded btn-uppercase"><i class="ti-settings m-r-5"></i>Edit</a>
                         </td>
                     </tr>
                     {% endfor %}

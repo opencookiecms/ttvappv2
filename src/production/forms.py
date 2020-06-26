@@ -12,6 +12,8 @@ class AddProjectForm(forms.ModelForm):
         'class':'form-control','placeholder':'Project Code'}))
     p_model = forms.CharField(widget=forms.TextInput(attrs={
         'class':'form-control','placeholder':'Model'}))
+    p_desc = forms.CharField(widget=forms.Textarea(attrs={
+        'class':'form-control','placeholder':'Description'}))
     p_startdate = forms.CharField(widget=forms.TextInput(attrs={
         'class':'form-control','placeholder':'Start Date'}))
     p_enddate = forms.CharField(widget=forms.TextInput(attrs={
@@ -26,6 +28,7 @@ class AddProjectForm(forms.ModelForm):
             'p_company',
             'p_code',
             'p_model',
+            'p_desc',
             'p_startdate',
             'p_enddate',
             'p_status'
@@ -41,6 +44,8 @@ class UpdateProjectForm(forms.ModelForm):
         'class':'form-control','placeholder':'Project Code'}))
     p_model = forms.CharField(widget=forms.TextInput(attrs={
         'class':'form-control','placeholder':'Model'}))
+    p_desc = forms.CharField(widget=forms.Textarea(attrs={
+        'class':'form-control','placeholder':'Project Description'}))
     p_startdate = forms.CharField(widget=forms.TextInput(attrs={
         'class':'form-control','placeholder':'Start Date'}))
     p_enddate = forms.CharField(widget=forms.TextInput(attrs={
@@ -55,6 +60,7 @@ class UpdateProjectForm(forms.ModelForm):
             'p_company',
             'p_code',
             'p_model',
+            'p_desc',
             'p_startdate',
             'p_enddate',
             'p_status'
@@ -190,6 +196,7 @@ class CameraForm(forms.ModelForm):
             'camera_overlay',
             'camera_detection',
             'camera_annotation',
+            
             'camera_group',
             'camera_cells',
             'camera_project'

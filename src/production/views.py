@@ -40,6 +40,7 @@ def cctv_cam(id):
     return cl
 
 
+
 def camera_gear(id):
     
     cam = cctv_cam(id)
@@ -206,6 +207,21 @@ def singlecam(request, camera_id):
 
     return render(request, 'cam_indie.html',context)
 
+def cctv_mainslave(id):
+    camera = Cameraset.objects.get(id=id)
+   
+    return camera
+
+
+def tmpsinglecam(request, camera_id):
+
+    context = {      
+        'camera' : Cameraset.objects.get(id=camera_id),
+        'test': 'this is testing message'
+    }
+
+    return render(request, 'cam_indie.html',context)
+
 
 def cctv_camera(request, group_name):
 
@@ -269,6 +285,7 @@ def UpdateInventory(request, iid):
     form = InventoryForm(request.POST or None, request.FILES or None, instance=obj)
     if form.is_valid():
         form.save()
+        return redirect('inventory')
     
     context = {
         'form':form
@@ -348,12 +365,12 @@ def Addcamera(request):
     form = CameraForm(request.POST or None)
     if form.is_valid():
         form.save()
-        form. CameraForm()
+        form = CameraForm()
     
-    data = {
+    context = {
         'form':form
     }
-    return render(request, 'camera_add.html',data)
+    return render(request, 'camera_add.html',context)
 
 def Updateproject(request, pid):
     obj = Ttvproject.objects.get(id=pid)
@@ -390,7 +407,7 @@ def ProjectList(request):
 def Cctvbyproject(request, ppid):
 
     data = {
-        'cam':Cameraset.objects.filter(camera_project=ppid)
+        'cam':Cameraset.objects.filter(camera_cells=ppid)
     }
 
     return render(request, 'camera_project.html',data)
