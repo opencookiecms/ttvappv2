@@ -172,6 +172,7 @@ class CameraForm(forms.ModelForm):
     }))
 
 
+
     class Meta:
 
         model = Cameraset
@@ -199,7 +200,8 @@ class CameraForm(forms.ModelForm):
             
             'camera_group',
             'camera_cells',
-            'camera_project'
+            'camera_project',
+            'camera_cell_tag'
         ]
 
 class CCTVSettingForm(forms.ModelForm):
