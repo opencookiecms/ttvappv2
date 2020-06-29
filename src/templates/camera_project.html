@@ -19,22 +19,21 @@
         <!-- end::page header -->
 
 
-        <div class="card-columns">
-            {% for cams in cam %}
-            <div class="card">
-            <iframe class="responsive-iframe" width="300" height="240" src="//192.168.0.164:5080/WebRTCApp/play.html?name={{cams.camera_slave}}" frameborder="0" allowfullscreen allow="autoplay"></iframe>
-    
-                <div class="card-body">
-                    <p class="card-text">
-                     {{cams.camera_name}}
-                     <br>
-                     <a href="{% url 'tmpsinglecam' cams.id %}" class="btn btn-outline-success">MoreInfo</a> 
-                    </p>
-                </div>
-            </div>
-            {% endfor %}
 
-        </div>
+<div class="row">
+ {% for cams in cam %}
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+       {{cams.camera_name}}
+        <iframe class="responsive-iframe" width="300" height="240" src="//192.168.0.187:5080/WebRTCApp/play.html?name={{cams.camera_slave}}" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+        <a href="{% url 'tmpsinglecam' cams.id %}" class="btn btn-outline-success">More Info</a> 
+
+      </div>
+    </div>
+  </div>
+   {% endfor %}
+</div>
 
     </div>
 
