@@ -407,7 +407,7 @@ def ProjectList(request):
 def Cctvbyproject(request, ppid):
 
     data = {
-        'cam':Cameraset.objects.filter(camera_cells=ppid)
+        'cam':Cameraset.objects.filter(camera_cell_tag=ppid)
     }
 
     return render(request, 'camera_project.html',data)

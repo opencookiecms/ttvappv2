@@ -88,8 +88,10 @@ class Cameraset(models.Model):
     camera_annotation = models.IntegerField(default=0, blank=True)
 
     camera_group = models.ForeignKey(Cctvgroup, blank=True, null=True, on_delete = models.SET_NULL)
-    camera_cells = models.ForeignKey(Ttvcell, blank=True, null=True, on_delete = models.SET_NULL)
-    camera_project = models.ForeignKey(Ttvproject, blank=True, null=True, on_delete = models.SET_NULL)
+    #camera_cells = models.ForeignKey(Ttvcell, blank=True, null=True, on_delete = models.SET_NULL)
+    #camera_project = models.ForeignKey(Ttvproject, blank=True, null=True, on_delete = models.SET_NULL)
+    camera_cell_tag = models.ManyToManyField(Ttvcell)
+    
 
     def __str__(self):
         return self.camera_name
