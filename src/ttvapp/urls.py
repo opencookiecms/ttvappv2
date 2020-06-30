@@ -26,13 +26,15 @@ from production.views import (
     inventoryview,
     Addinventory,
     UpdateInventory,
-    tmpsinglecam
+    tmpsinglecam,
+    login_view,
+    register,
     )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
-    path('',index),
+    path('',index, name='index'),
     path('cctv',cctv_dashboard, name='cctv'), #cctv_dashboard.html
     path('camera/<int:group_name>/',cctv_camera, name='camera'),#camerav2.html
     path('camera_list', Cameramanage, name="camera_list"),#manage_camera.html
@@ -56,7 +58,10 @@ urlpatterns = [
     path('update-inventory/<int:iid>/', UpdateInventory, name='update-inventory'),
 
     path('cameraproject/<int:ppid>/', Cctvbyproject, name='cameraproject'),
-    path('cellcamera/<int:ppid>/', Cctvbyproject, name='cellcamera')
+    path('cellcamera/<int:ppid>/', Cctvbyproject, name='cellcamera'),
+
+    path('login', login_view, name="login"),
+    path('register', register, name='register'),
 ]
 
 if settings.DEBUG:

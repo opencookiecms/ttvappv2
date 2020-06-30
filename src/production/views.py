@@ -2,6 +2,7 @@ from pyimagesearch.motion_detection import SingleMotionDetector
 from imutils.video import VideoStream
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.models import User, auth
+from django.contrib import messages
 from django.http import StreamingHttpResponse, HttpResponse, HttpResponseServerError
 from django.views.decorators import gzip
 import threading
@@ -23,7 +24,6 @@ def index(request):
 
 def cctv_dashboard(request):
 
- 
     context = {
         'title':'by group',
         'camcategory':Cctvgroup.objects.all(),
@@ -38,7 +38,6 @@ def cctv_cam(id):
     print("hello"+cl)
     
     return cl
-
 
 
 def camera_gear(id):
@@ -176,9 +175,9 @@ def login_view(request):
 
         if user is not None:
             auth.login(request, user)
-            return redirect('cctv')
+            return redirect('index')
         else:
-            messages.info(request,'Wrong username/password')
+            messages.info(request,'wrong username and password')
             return redirect('login')
     else:
         return render(request, 'login.html')
@@ -186,6 +185,9 @@ def login_view(request):
 def logout(request):
     auth.logout(request)
     return redirect('login')
+
+def register(request):
+    return render(request, 'register.html')
 
         
 def inventoryadd(request):
