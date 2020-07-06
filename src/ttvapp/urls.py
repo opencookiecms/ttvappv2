@@ -29,6 +29,7 @@ from production.views import (
     tmpsinglecam,
     login_view,
     register,
+    testpage
     )
 
 urlpatterns = [
@@ -62,6 +63,7 @@ urlpatterns = [
 
     path('login', login_view, name="login"),
     path('register', register, name='register'),
+    path('any', testpage, name='any')
 ]
 
 if settings.DEBUG:

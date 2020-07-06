@@ -11,7 +11,9 @@
         <!-- begin::page header -->
         <div class="page-header d-md-flex justify-content-between align-items-center">
             <div>
-                <h4>Welcome </h4>
+                {% if user.is_authenticated %}
+                <h4>Welcome {{user.username}}</h4>
+                {% endif %}
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
@@ -29,18 +31,18 @@
         </div>
         <!-- end::page header -->
 
-        <div class="row">
+       <!--<div class="row">
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <h6>--</h6>
+                                <h6></h6>
                                 <h4 class="m-b-0 font-weight-bold">
-                                    --
+                                    
                                     <small data-toggle="tooltip" title="Than last week"
                                            class="text-success font-size-11">
-                                       --
+                                       
                                         <i class="ti-arrow-up"></i>
                                     </small>
                                 </h4>
@@ -58,12 +60,12 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <h6>--</h6>
+                                <h6></h6>
                                 <h4 class="m-b-0 font-weight-bold">
-                                    --
+                                    
                                     <small data-toggle="tooltip" title="Than last week"
                                            class="text-danger font-size-11">
-                                        --
+                                        
                                         <i class="ti-arrow-down"></i>
                                     </small>
                                 </h4>
@@ -83,10 +85,10 @@
                             <div>
                                 <h6>Avg. Order Value</h6>
                                 <h4 class="m-b-0 font-weight-bold">
-                                    --
+                                    
                                     <small data-toggle="tooltip" title="Than last week"
                                            class="text-danger font-size-11">
-                                        --
+                                        
                                         <i class="ti-arrow-down"></i>
                                     </small>
                                 </h4>
@@ -104,12 +106,12 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <h6>--</h6>
+                                <h6></h6>
                                 <h4 class="m-b-0 font-weight-bold">
-                                    --
+                                    
                                     <small data-toggle="tooltip" title="Than last week"
                                            class="text-success font-size-11">
-                                        --
+                                        
                                         <i class="ti-arrow-up"></i>
                                     </small>
                                 </h4>
@@ -121,7 +123,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
     </div>
 
 </main>

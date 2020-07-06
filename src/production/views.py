@@ -2,6 +2,7 @@ from pyimagesearch.motion_detection import SingleMotionDetector
 from imutils.video import VideoStream
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.models import User, auth
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import StreamingHttpResponse, HttpResponse, HttpResponseServerError
 from django.views.decorators import gzip
@@ -18,10 +19,18 @@ from .forms import AddProjectForm,UpdateProjectForm,CellForm,CameraForm,CCTVSett
 from .models import Ttvproject,Ttvcell,Cctvgroup,Cameraset,Cctvline,InventoryProduct,Groupcell
 
 
+@login_required(login_url='/login')
 def index(request):
     return render(request, 'dashboard.html')
-    
 
+def testpage(request):
+
+    context = {
+        'title':'this is test sssssss',
+    }
+    return render(request, 'test.html',context)
+    
+@login_required(login_url='/login')
 def cctv_dashboard(request):
 
     context = {
@@ -30,6 +39,7 @@ def cctv_dashboard(request):
         'count': Cameraset.objects.filter(camera_group=7).count()
     } 
     return render(request, 'cctv_dashboard.html',context)
+
 
 def cctv_cam(id):
 
@@ -63,7 +73,7 @@ def camera_gear(id):
 def cctv_frame(cams_id):
 
     cam = cctv_cam(cams_id)
-    cap = cv2.VideoCapture(cam)
+    cap = cv2.VideoCapture('rtsp://192.168.1.124:554/ch1/main/av_stream')
     #fps = FPS().start()
     time.sleep(2.0)
     sub = cv2.createBackgroundSubtractorMOG2()
@@ -158,7 +168,7 @@ def cctv_groupimg(request,id):
 def cctv_group(request,id):
     if request.method == 'GET':
         try:
-            return StreamingHttpResponse(camera_gear(id), content_type='multipart/x-mixed-replace; boundary=frame')
+            return StreamingHttpResponse(cctv_frame(id), content_type='multipart/x-mixed-replace; boundary=frame')
         except HttpResponseServerError as e:
             print("abrout")
 
@@ -194,6 +204,7 @@ def inventoryadd(request):
     posts = InventoryProduct.objects.all() 
     return render(request, 'inventoryin.html', {'posts': posts})
 
+@login_required(login_url='/login')
 def singlecam(request, camera_id):
     
     obj = Cameraset.objects.get(id=camera_id)
@@ -305,6 +316,7 @@ def Cellgroup(request):
 
     return render(request, 'cellgroup.html',context)
 
+@login_required(login_url='/login')
 def Celllist(request, groupid):
     
     data = {

@@ -35,6 +35,7 @@ class Ttvproject(models.Model):
 
 class Ttvcell(models.Model):
  
+  
     cell_name = models.CharField(max_length=100, blank=True)
     cell_size = models.IntegerField(default=0, blank=True)
     cell_lane = models.IntegerField(default=0, blank=True)

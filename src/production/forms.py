@@ -4,8 +4,7 @@ from .models import Ttvproject, Ttvcell, Groupcell, Cameraset, Cctvgroup, Invent
 
 class AddProjectForm(forms.ModelForm):
 
-    p_name = forms.CharField(widget=forms.TextInput(attrs={
-        'class':'form-control','placeholder':'Project Name'}))
+    p_name = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control','placeholder':'Project Name'}))
     p_company = forms.CharField(widget=forms.TextInput(attrs={
         'class':'form-control','placeholder':'Company Name'}))
     p_code = forms.CharField(widget=forms.TextInput(attrs={
