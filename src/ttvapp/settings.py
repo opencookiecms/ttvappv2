@@ -27,7 +27,7 @@ DEBUG = True
 
 
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1','192.168.0.125','192.168.0.114']
+ALLOWED_HOSTS = ['localhost','127.0.0.1','192.168.0.125','192.168.0.114','intra.ttv.net']
 
 
 # Application definition
