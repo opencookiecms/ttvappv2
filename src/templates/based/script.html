@@ -41,3 +41,42 @@ jQuery(document).ready(function($){
 <script src="{% static 'Gramos/demos/assets/js/examples/datatable.js' %}"></script>
 <!-- end::dataTable -->
 
+    <script>
+    $(document).ready(function(){
+        $(".filter").on("keyup", function() {
+  var input = $(this).val().toUpperCase();
+  var visibleCards = 0;
+  var hiddenCards = 0;
+
+  $(".container-fluid").append($("<div class='card-group card-group-filter'></div>"));
+
+
+  $(".card").each(function() {
+    if ($(this).data("string").toUpperCase().indexOf(input) < 0) {
+
+      $(".card-group.card-group-filter:first-of-type").append($(this));
+      $(this).hide();
+      hiddenCards++;
+
+    } else {
+
+      $(".card-group.card-group-filter:last-of-type").prepend($(this));
+      $(this).show();
+      visibleCards++;
+
+      if (((visibleCards % 4) == 0)) {
+        $(".container-fluid").append($("<div class='card-group card-group-filter'></div>"));
+      }
+    }
+  });
+
+  $(".card-group").each(function() {
+    if ($(this).find("div").length == 0) {
+      $(this).remove();
+    }
+  })
+});
+    });
+
+    </script>
+

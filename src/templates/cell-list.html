@@ -7,6 +7,7 @@
 
     <div class="container-fluid">
 
+
         <!-- begin::page header -->
         <div class="page-header d-md-flex justify-content-between align-items-center">
             <h4>Cell Dashboard : {{title}}</h4>
@@ -20,10 +21,26 @@
             </nav>
         </div>
         <!-- end::page header -->
-
+        <div class="row">
+        <div class="col-md-12">
+                 <form class="search">
+                <div class="input-group">
+                    <input type="text" class="form-control filter" placeholder="Search ..."
+                           aria-label="Recipient's username"
+                           aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn" type="button" id="button-addon2">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+            </div>
+            </div>
+            <p>
         <div class="card-group">
             {% for row in row1 %}
-            <div class="card  {{row.cell_project.p_color}}">
+            <div class="card  {{row.cell_project.p_color}}" data-string="{{row.cell_project.p_name}} {{row.cell_name}}">
                 <div class="card-header">{{row.cell_name}}</div>
                 <div class="card-body">
                     {% if row.cell_project == None %}
@@ -47,7 +64,7 @@
 
         <div class="card-group"style="margin-bottom:3px">
             {% for row in row2 %}
-            <div class="card {{row.cell_project.p_color}}">
+            <div class="card  {{row.cell_project.p_color}}" data-string="{{row.cell_project.p_name}} {{row.cell_name}}">
                 <div class="card-header">{{row.cell_name}}</div>
                       <div class="card-body">
                     {% if row.cell_project == None %}
@@ -70,7 +87,7 @@
 
         <div class="card-group">
             {% for row in row3 %}
-            <div class="card {{row.cell_project.p_color}}">
+             <div class="card  {{row.cell_project.p_color}}" data-string="{{row.cell_project.p_name}} {{row.cell_name}}">
                 <div class="card-header">{{row.cell_name}}</div>
                     <div class="card-body">
                     {% if row.cell_project == None %}
@@ -94,7 +111,7 @@
     
         <div class="card-group">
             {% for row in row4 %}
-            <div class="card {{row.cell_project.p_color}}">
+             <div class="card  {{row.cell_project.p_color}}" data-string="{{row.cell_project.p_name}} {{row.cell_name}}">
                 <div class="card-header">{{row.cell_name}}</div>
                     <div class="card-body">
                     {% if row.cell_project == None %}
@@ -117,6 +134,7 @@
 
 
     </div>
+
 
 </main>
 
