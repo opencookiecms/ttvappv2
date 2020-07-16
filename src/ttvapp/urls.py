@@ -54,6 +54,7 @@ urlpatterns = [
     path('update-cell/<int:cid>/',Updatecell, name='update-cell'),
     path('camera-edit/<int:cid>/',Updatecamera, name='camera-edit'),
     path('cctv_all', cctv_all, name='cctv_all'),
+    
     path('inventory' , inventoryview, name='inventory'),
     path('add-inventory', Addinventory, name='add-inventory'),
     path('update-inventory/<int:iid>/', UpdateInventory, name='update-inventory'),

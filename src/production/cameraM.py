@@ -2,8 +2,8 @@ from threading import Thread, Lock
 import cv2
 
 
-class CameraStreamMulti(object):
-    def __init__(self, src=object):
+class CameraStreamMulti():
+    def __init__(self, src='rtp['):
         self.stream = cv2.VideoCapture(src)
 
         (self.grabbed, self.frame) = self.stream.read()

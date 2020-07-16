@@ -13,6 +13,7 @@ import imutils
 import time
 import cv2
 import numpy as np
+from .cameraR import CameraStream
 from vidgear.gears import CamGear
 from django.templatetags.static import static
 from .forms import AddProjectForm,UpdateProjectForm,CellForm,CameraForm,CCTVSettingForm,InventoryForm
@@ -45,6 +46,8 @@ def cctv_cam(id):
 
     camera = Cameraset.objects.get(id=id)
     cl = camera.camera_link
+   
+    
     print("hello"+cl)
     
     return cl
@@ -73,7 +76,8 @@ def camera_gear(id):
 def cctv_frame(cams_id):
 
     cam = cctv_cam(cams_id)
-    cap = cv2.VideoCapture('rtsp://192.168.1.124:554/ch1/main/av_stream')
+    #cap = cv2.VideoCapture('rtsp://192.168.1.124:554/ch1/main/av_stream')
+    cap = CameraStream().start()
     #fps = FPS().start()
     time.sleep(2.0)
     sub = cv2.createBackgroundSubtractorMOG2()
@@ -279,13 +283,16 @@ def inventoryview(request):
 
 
 def Addinventory(request):
-
+    
+   
     form = InventoryForm(request.POST or None, request.FILES or None)
     if form.is_valid():
 
         form.save()
         #form.InventoryForm()
+    
         return redirect('inventory')
+ 
 
     data = {
         'form':form
